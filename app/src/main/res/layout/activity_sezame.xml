@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/tableLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="5dip" >
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="77dp"
+            android:layout_height="wrap_content"
+            android:text="Data"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="98dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="500dp"
+            android:text="Gdzie?"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content"
+            android:text="Co?"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="199dp"
+            android:layout_height="wrap_content"
+            android:letterSpacing="5"
+            android:text="Wykonano?"
+            android:textSize="25dp" />
+
+    </TableRow>
+
+
+</RelativeLayout>
