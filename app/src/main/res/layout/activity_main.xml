@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <Button
@@ -10,7 +12,7 @@
         android:layout_alignStart="@+id/button7"
         android:layout_below="@+id/button7"
         android:layout_marginTop="14dp"
-        android:text="Przeglądaj zadania na tydzień" />
+        android:text="@string/przegl_daj_zadania_na_tydzie" />
 
     <Button
         android:id="@+id/button7"
@@ -19,7 +21,7 @@
         android:layout_alignStart="@+id/button6"
         android:layout_below="@+id/button6"
         android:layout_marginTop="11dp"
-        android:text="Przeglądaj zadania na jutro" />
+        android:text="@string/przegl_daj_zadania_na_jutro" />
 
     <Button
         android:id="@+id/button2"
@@ -29,7 +31,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="19dp"
         android:layout_marginEnd="20dp"
-        android:text="Wyloguj" />
+        android:text="@string/wyloguj" />
 
     <Button
         android:id="@+id/button3"
@@ -38,7 +40,7 @@
         android:layout_alignEnd="@+id/button7"
         android:layout_alignParentTop="true"
         android:layout_marginTop="109dp"
-        android:text="Dodaj zadanie" />
+        android:text="@string/dodaj_zadanie" />
 
     <Button
         android:id="@+id/button4"
@@ -48,7 +50,7 @@
         android:layout_below="@+id/button3"
         android:layout_marginStart="16dp"
         android:layout_marginTop="23dp"
-        android:text="Przeglądaj zadania" />
+        android:text="@string/przegl_daj_zadania" />
 
     <Button
         android:id="@+id/button6"
@@ -57,5 +59,5 @@
         android:layout_alignStart="@+id/button4"
         android:layout_below="@+id/button4"
         android:layout_marginTop="13dp"
-        android:text="Przeglądaj zadania na dzisiaj" />
+        android:text="@string/przegl_daj_zadania_na_dzisiaj" />
 </RelativeLayout>
