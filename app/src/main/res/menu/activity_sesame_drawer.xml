@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/Add"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Dodaj zadanie" />
+        <item
+            android:id="@+id/Edit"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Edytuj Zadanie" />
+        <item
+            android:id="@+id/Delete"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Usuń Zadanie" />
+    </group>
+    <item android:title="Widoki">
+        <menu>
+            <item
+                android:id="@+id/Today"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Na Dzisiaj" />
+            <item
+                android:id="@+id/Week"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Na ten tydzień" />
+            <item
+                android:id="@+id/Month"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Na ten tydzień" />
+        </menu>
+    </item>
+    <item android:title="inne">
+        <menu>
+            <item
+                android:id="@+id/Settings"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Ustawienia" />
+            <item
+                android:id="@+id/Log_Out"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Wyloguj" />
+        </menu>
+    </item>
+
+</menu>

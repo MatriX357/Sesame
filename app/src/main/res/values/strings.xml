@@ -96,8 +96,16 @@
     <string name="gdzie">Gdzie?</string>
     <string name="co">Co?</string>
     <string name="wykonano">Wykonano?</string>
-    <string name="nowe_has_o"
-        tools:ignore="Typos">Nowe hasło:</string>
+    <string name="nowe_has_o" tools:ignore="Typos">Nowe hasło:</string>
     <string name="zmie">Zmień</string>
     <string name="stare_has_o">Stare hasło:</string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="organizer_zadan">Organizer Zadan</string>
+    <string name="sesame">Sesame</string>
 </resources>
