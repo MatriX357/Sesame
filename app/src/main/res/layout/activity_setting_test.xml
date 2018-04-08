@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.mxmbro.sesame.SettingTest">
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="47dp"
+        android:layout_marginTop="43dp"
+        android:onClick="changePassword"
+        android:text="Zmień hasło"
+        android:textSize="24sp" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkedTextView2"
+        android:layout_below="@+id/checkedTextView2"
+        android:layout_marginTop="35dp"
+        android:text="Dostosuj wygląd"
+        android:textSize="24sp" />
+
+    <CheckedTextView
+        android:id="@+id/checkedTextView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/checkedTextView3"
+        android:layout_below="@+id/checkedTextView3"
+        android:layout_marginTop="31dp"
+        android:text="Ustawienia powiadomień"
+        android:textSize="24sp" />
+
+</RelativeLayout>

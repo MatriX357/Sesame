@@ -7,30 +7,31 @@
         <item
             android:id="@+id/Add"
             android:icon="@drawable/ic_menu_camera"
-            android:title="Dodaj zadanie" />
+            android:title="@string/dodaj_zadanie" />
+
         <item
             android:id="@+id/Edit"
             android:icon="@drawable/ic_menu_gallery"
-            android:title="Edytuj Zadanie" />
+            android:title="@string/edytuj_zadanie" />
         <item
             android:id="@+id/Delete"
             android:icon="@drawable/ic_menu_slideshow"
-            android:title="Usuń Zadanie" />
+            android:title="@string/usu_zadanie" />
     </group>
-    <item android:title="Widoki">
+    <item android:title="@string/widoki">
         <menu>
             <item
                 android:id="@+id/Today"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Na Dzisiaj" />
+                android:title="@string/na_dzisiaj" />
             <item
                 android:id="@+id/Week"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Na ten tydzień" />
+                android:title="@string/na_ten_tydzien" />
             <item
                 android:id="@+id/Month"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Na ten tydzień" />
+                android:title="@string/na_ten_miesiac" />
         </menu>
     </item>
     <item android:title="inne">
@@ -38,11 +39,15 @@
             <item
                 android:id="@+id/Settings"
                 android:icon="@drawable/ic_menu_share"
-                android:title="Ustawienia" />
+                android:title="@string/ustawienia" />
+            <item
+                android:id="@+id/Settings2"
+                android:icon="@drawable/ic_menu_share"
+                android:title="@string/ustawienia2" />
             <item
                 android:id="@+id/Log_Out"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Wyloguj" />
+                android:title="@string/wyloguj" />
         </menu>
     </item>
 

@@ -1,5 +1,6 @@
 package com.mxmbro.sesame;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -82,21 +83,43 @@ public class SesameActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.Add) {
-            // Handle the camera action
-        } else if (id == R.id.Edit) {
+            Intent intent = new Intent(getApplicationContext(), AddActivity.class );
+            finish();
+            startActivity(intent);
 
-        } else if (id == R.id.Delete) {
+        }
+        else if (id == R.id.Edit) {
 
-        } else if (id == R.id.Today) {
+        }
+        else if (id == R.id.Delete) {
 
-        } else if (id == R.id.Week) {
+        }
+        else if (id == R.id.Today) {
 
-        } else if (id == R.id.Month) {
+        }
+        else if (id == R.id.Week) {
 
-        } else if (id == R.id.Log_Out) {
+        }
+        else if (id == R.id.Month) {
 
-        } else if (id == R.id.Settings) {
+        }
+        else if (id == R.id.Log_Out) {
+            Intent intent = new Intent(getApplicationContext(), LoginActivity.class );
+            finish();
+            startActivity(intent);
 
+
+        }
+        else if (id == R.id.Settings) {
+            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class );
+            finish();
+            startActivity(intent);
+
+        }
+        else if(id == R.id.Settings2){
+            Intent intent = new Intent(getApplicationContext(), SettingTest.class );
+            finish();
+            startActivity(intent);
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
