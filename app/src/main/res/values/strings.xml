@@ -78,14 +78,14 @@
     <string name="pref_title_system_sync_settings">System sync settings</string>
 
     <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Notifications</string>
+    <string name="pref_header_notifications">Powiadomienia</string>
 
-    <string name="pref_title_new_message_notifications">New message notifications</string>
+    <string name="pref_title_new_message_notifications">Powiadomienia</string>
 
-    <string name="pref_title_ringtone">Ringtone</string>
-    <string name="pref_ringtone_silent">Silent</string>
+    <string name="pref_title_ringtone">Dzwonek</string>
+    <string name="pref_ringtone_silent">Cisza</string>
 
-    <string name="pref_title_vibrate">Vibrate</string>
+    <string name="pref_title_vibrate">Wibracja</string>
     <string name="przegladaj_zadania_na_tydzien">Przeglądaj zadania na tydzień</string>
     <string name="przegladaj_zadania_na_jutro">Przeglądaj zadania na jutro</string>
     <string name="wyloguuj">Wyloguj</string>
@@ -96,11 +96,11 @@
     <string name="gdzie">Gdzie?</string>
     <string name="co">Co?</string>
     <string name="wykonano">Wykonano?</string>
-    <string name="nowe_haslo" tools:ignore="Typos">Nowe hasło:</string>
+    <string name="nowe_haslo" tools:ignore="Typos">Nowe hasło</string>
     <string name="zmien">Zmień</string>
-    <string name="stare_haslo">Stare hasło:</string>
+    <string name="stare_haslo">Stare hasło</string>
     <string name="title_activity_login">Sign in</string>
-    <string name="title_activity_main2">Sezame</string>
+    <string name="title_activity_main2">Sesame</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -120,4 +120,5 @@
     <string name="title_activity_login2">Sign in</string>
     <string name="title_activity_settings2">Ustawienia2</string>
     <string name="ustawienia2">Ustawienia2</string>
+    <string name="pref_header_change_password">Zmień hasło</string>
 </resources>

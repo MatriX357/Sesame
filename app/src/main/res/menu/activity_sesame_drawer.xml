@@ -6,31 +6,31 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/Add"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_action_add"
             android:title="@string/dodaj_zadanie" />
 
         <item
             android:id="@+id/Edit"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_action_edit"
             android:title="@string/edytuj_zadanie" />
         <item
             android:id="@+id/Delete"
-            android:icon="@drawable/ic_menu_slideshow"
+            android:icon="@drawable/ic_action_delete"
             android:title="@string/usu_zadanie" />
     </group>
     <item android:title="@string/widoki">
         <menu>
             <item
                 android:id="@+id/Today"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_action_today"
                 android:title="@string/na_dzisiaj" />
             <item
                 android:id="@+id/Week"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_action_event_note"
                 android:title="@string/na_ten_tydzien" />
             <item
                 android:id="@+id/Month"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_action_chrome_reader_mode"
                 android:title="@string/na_ten_miesiac" />
         </menu>
     </item>
@@ -38,15 +38,15 @@
         <menu>
             <item
                 android:id="@+id/Settings"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_action_settings"
                 android:title="@string/ustawienia" />
             <item
                 android:id="@+id/Settings2"
-                android:icon="@drawable/ic_menu_share"
+                android:icon="@drawable/ic_action_settings"
                 android:title="@string/ustawienia2" />
             <item
                 android:id="@+id/Log_Out"
-                android:icon="@drawable/ic_menu_send"
+                android:icon="@drawable/ic_action_power_settings_new"
                 android:title="@string/wyloguj" />
         </menu>
     </item>
