@@ -82,44 +82,50 @@ public class SesameActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.Add) {
-            Intent intent = new Intent(getApplicationContext(), AddActivity.class );
-            finish();
-            startActivity(intent);
+        switch (id) {
+            case R.id.Add: {
+                Intent intent = new Intent(getApplicationContext(), AddActivity.class);
+                finish();
+                startActivity(intent);
 
-        }
-        else if (id == R.id.Edit) {
+                break;
+            }
+            case R.id.Edit:
 
-        }
-        else if (id == R.id.Delete) {
+                break;
+            case R.id.Delete:
 
-        }
-        else if (id == R.id.Today) {
+                break;
+            case R.id.Today:
 
-        }
-        else if (id == R.id.Week) {
+                break;
+            case R.id.Week:
 
-        }
-        else if (id == R.id.Month) {
+                break;
+            case R.id.Month:
 
-        }
-        else if (id == R.id.Log_Out) {
-            Intent intent = new Intent(getApplicationContext(), LoginActivity.class );
-            finish();
-            startActivity(intent);
+                break;
+            case R.id.Log_Out: {
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                finish();
+                startActivity(intent);
 
 
-        }
-        else if (id == R.id.Settings) {
-            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class );
-            finish();
-            startActivity(intent);
+                break;
+            }
+            case R.id.Settings: {
+                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                finish();
+                startActivity(intent);
 
-        }
-        else if(id == R.id.Settings2){
-            Intent intent = new Intent(getApplicationContext(), SettingTest.class );
-            finish();
-            startActivity(intent);
+                break;
+            }
+            case R.id.Settings2: {
+                Intent intent = new Intent(getApplicationContext(), SettingTest.class);
+                finish();
+                startActivity(intent);
+                break;
+            }
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

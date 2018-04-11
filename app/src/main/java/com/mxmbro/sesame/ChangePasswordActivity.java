@@ -18,4 +18,5 @@ public class ChangePasswordActivity extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
 }

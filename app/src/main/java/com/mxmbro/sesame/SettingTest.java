@@ -18,4 +18,5 @@ public class SettingTest extends AppCompatActivity {
         finish();
         startActivity(intent);
     }
+
 }

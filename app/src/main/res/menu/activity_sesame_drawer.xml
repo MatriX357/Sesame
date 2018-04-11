@@ -34,7 +34,7 @@
                 android:title="@string/na_ten_miesiac" />
         </menu>
     </item>
-    <item android:title="inne">
+    <item android:title="@string/inne">
         <menu>
             <item
                 android:id="@+id/Settings"
