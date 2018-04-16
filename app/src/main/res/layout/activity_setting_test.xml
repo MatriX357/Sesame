@@ -14,7 +14,7 @@
         android:layout_marginStart="47dp"
         android:layout_marginTop="43dp"
         android:onClick="changePassword"
-        android:text="@string/zmie_has_o"
+        android:text="@string/zmien_haslo"
         android:textSize="24sp" />
 
     <CheckedTextView
@@ -24,7 +24,7 @@
         android:layout_alignStart="@+id/checkedTextView2"
         android:layout_below="@+id/checkedTextView2"
         android:layout_marginTop="35dp"
-        android:text="@string/dostosuj_wygl_d"
+        android:text="@string/dostosuj_wyglad"
         android:textSize="24sp" />
 
     <CheckedTextView

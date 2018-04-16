@@ -16,7 +16,7 @@
         <item
             android:id="@+id/Delete"
             android:icon="@drawable/ic_action_delete"
-            android:title="@string/usu_zadanie" />
+            android:title="@string/usun_zadanie" />
     </group>
     <item android:title="@string/widoki">
         <menu>

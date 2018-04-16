@@ -85,7 +85,7 @@
     <string name="sesame">Sesame</string>
     <string name="dodaj_zadanie">Dodaj zadanie</string>
     <string name="edytuj_zadanie">Edytuj Zadanie</string>
-    <string name="usu_zadanie">Usuń Zadanie</string>
+    <string name="usun_zadanie">Usuń Zadanie</string>
     <string name="widoki">Widoki</string>
     <string name="na_dzisiaj">Na Dzisiaj</string>
     <string name="na_ten_tydzien">Na ten tydzień</string>
@@ -96,11 +96,12 @@
     <string name="pref_header_change_password">Zmień hasło</string>
     <string name="todo">TODO</string>
     <string name="inne">inne</string>
-    <string name="zmie_has_o">Zmień hasło</string>
-    <string name="dostosuj_wygl_d">Dostosuj wygląd</string>
+    <string name="zmien_haslo">Zmień hasło</string>
+    <string name="dostosuj_wyglad">Dostosuj wygląd</string>
     <string name="ustawienia_powiadomie">Ustawienia powiadomień</string>
     <string name="data">Data</string>
     <string name="gdzie">Gdzie?</string>
     <string name="co">Co?</string>
-    <string name="zatwierd">Zatwierdź</string>
+    <string name="zatwierdz">Zatwierdź</string>
+    <string name="ustaw_date">Ustaw Date</string>
 </resources>
