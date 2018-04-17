@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
-import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
@@ -63,12 +62,12 @@ public class AddActivity extends AppCompatActivity implements View.OnClickListen
 
     @SuppressLint("SetTextI18n")
     public void confirm(View view) {
-        TableLayout tl = findViewById(R.id.main_table);
+        //TableLayout tl = findViewById(R.id.main_table);
         TableRow row = new TableRow(this);
         TextView tv = new TextView(this);
         tv.setText("This is text");
 
-        tl.addView(row);
+        //tl.addView(row);
         row.addView(tv);
     }
 }

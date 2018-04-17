@@ -15,11 +15,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginStart="20dp"
         android:layout_marginTop="14dp"
-        android:contentDescription="Data"
+        android:contentDescription="@string/data"
         android:ems="10"
-        android:hint="Data"
+        android:hint="@string/data"
         android:inputType="date"
-        tools:ignore="LabelFor" />
+        tools:ignore="ContentDescription,LabelFor" />
 
     <EditText
         android:id="@+id/editText5"
@@ -53,7 +53,7 @@
         android:layout_alignStart="@+id/in_date"
         android:layout_alignTop="@+id/editText5"
         android:ems="10"
-        android:hint="Gdzie?"
+        android:hint="@string/gdzie"
         android:inputType="textMultiLine"
         tools:ignore="LabelFor" />
 
@@ -63,7 +63,7 @@
         android:layout_alignStart="@+id/in_date"
         android:layout_alignTop="@+id/editText6"
         android:ems="10"
-        android:hint="Co?"
+        android:hint="@string/co"
         android:inputType="textMultiLine"
         tools:ignore="LabelFor" />
 
@@ -84,6 +84,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/in_date"
         android:layout_marginEnd="25dp"
-        android:text="@string/ustaw_date" />
+        android:text="@string/ustaw_date"
+        tools:ignore="RelativeOverlap" />
 
 </RelativeLayout>

@@ -72,8 +72,7 @@
     <string name="pref_ringtone_silent">Cisza</string>
 
     <string name="pref_title_vibrate">Wibracja</string>
-    <string name="nowe_haslo"
-        tools:ignore="Typos">Nowe hasło</string>
+    <string name="nowe_haslo" tools:ignore="Typos">Nowe hasło</string>
     <string name="zmien">Zmień</string>
     <string name="stare_haslo">Stare hasło</string>
     <string name="title_activity_login">Sign in</string>
@@ -104,4 +103,7 @@
     <string name="co">Co?</string>
     <string name="zatwierdz">Zatwierdź</string>
     <string name="ustaw_date">Ustaw Date</string>
+    <string name="Welcome">TODO</string>
+    <string name="Sesamelogo">TODO</string>
+
 </resources>

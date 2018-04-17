@@ -24,6 +24,7 @@
         android:focusableInTouchMode="true"
         android:scrollIndicators="top|bottom"
         app:headerLayout="@layout/nav_header_sesame"
-        app:menu="@menu/activity_sesame_drawer" />
+        app:menu="@menu/activity_sesame_drawer"
+        tools:ignore="KeyboardInaccessibleWidget" />
 
 </android.support.v4.widget.DrawerLayout>
