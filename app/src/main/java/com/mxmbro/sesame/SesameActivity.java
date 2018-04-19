@@ -1,5 +1,6 @@
 package com.mxmbro.sesame;
 
+import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,11 +8,15 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ListView;
 
-public class SesameActivity extends AppCompatActivity
+import com.mxmbro.sesame.adapters.TaskListAdapter;
+import com.mxmbro.sesame.tasks.Task;
+
+public class SesameActivity extends ListActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
@@ -27,7 +32,13 @@ public class SesameActivity extends AppCompatActivity
 
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
+
+        app = (TaskManagerApplication) getApplication();
+        adapter = new TaskListAdapter(this, app.getCurrentTasks());
+        setListAdapter(adapter);
+        }
+
+
 
     @Override
     public void onBackPressed() {
@@ -70,7 +81,6 @@ public class SesameActivity extends AppCompatActivity
         switch (id) {
             case R.id.Add: {
                 Intent intent = new Intent(getApplicationContext(), AddActivity.class);
-                finish();
                 startActivity(intent);
 
                 break;
@@ -78,9 +88,11 @@ public class SesameActivity extends AppCompatActivity
             case R.id.Edit:
 
                 break;
-            case R.id.Delete:
-
+            case R.id.Delete: {
+                removeCompletedTasks();
                 break;
+            }
+
             case R.id.Today:
 
                 break;
@@ -105,16 +117,33 @@ public class SesameActivity extends AppCompatActivity
 
                 break;
             }
-            case R.id.Settings2: {
-                Intent intent = new Intent(getApplicationContext(), SettingTest.class);
-                finish();
-                startActivity(intent);
-                break;
-            }
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+    private TaskManagerApplication app;
+    private TaskListAdapter adapter;
+
+    /** Called when the activity is first created. */
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        adapter.forceReload();
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        adapter.toggleTaskCompleteAtPosition(position);
+        Task t = adapter.getItem(position);
+        app.saveTask(t);
+    }
+
+    protected void removeCompletedTasks() {
+        Long[] ids = adapter.removeCompletedTasks();
+        app.deleteTasks(ids);
     }
 }

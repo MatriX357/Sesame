@@ -8,7 +8,7 @@
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
 
-    <application
+    <application android:name=".TaskManagerApplication"
         android:allowBackup="false"
         android:icon="@mipmap/ic_sesamelogo4"
         android:label="@string/app_name"
@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login" />
+            android:label="@string/zaloguj" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -32,7 +32,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddActivity" />
-        <activity android:name=".SettingTest" />
         <activity android:name=".ChangePasswordActivity" />
         <activity
             android:name=".WelcomeActivity" >

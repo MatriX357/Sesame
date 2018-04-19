@@ -93,6 +93,7 @@
     <string name="wyloguj">Wyloguj</string>
     <string name="ustawienia2">Ustawienia2</string>
     <string name="pref_header_change_password">Zmień hasło</string>
+    <string name="pref_header_set_password">Ustawienia hasła</string>
     <string name="todo">TODO</string>
     <string name="inne">inne</string>
     <string name="zmien_haslo">Zmień hasło</string>
@@ -105,5 +106,13 @@
     <string name="ustaw_date">Ustaw Date</string>
     <string name="Welcome">TODO</string>
     <string name="Sesamelogo">TODO</string>
+    <string name="pin">Kod PIN</string>
+    <string name="haslo">Hasło</string>
+    <string name="zaloguj">Zaloguj</string>
+    <string name="zaloguj_sie">Zaloguj się</string>
+    <string name="unsaved_changes_title">Unsaved Changes</string>
+    <string name="unsaved_changes_message">Would you like to add this task?</string>
+    <string name="discard">Discard</string>
+    <string name="no_tasks">No tasks.</string>
 
 </resources>

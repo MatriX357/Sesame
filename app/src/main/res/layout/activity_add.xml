@@ -5,6 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:showIn="navigation_view"
     tools:context="com.mxmbro.sesame.AddActivity">
 
     <EditText
@@ -30,25 +31,13 @@
         android:layout_marginTop="19dp"
         android:layout_toStartOf="@+id/in_date"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/gdzie"
+        android:hint="@string/gdzie"
+        android:inputType="text"
         tools:ignore="LabelFor" />
 
     <EditText
-        android:id="@+id/editText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/editText5"
-        android:layout_alignParentStart="true"
-        android:layout_below="@+id/editText5"
-        android:layout_marginTop="28dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="@string/co"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:layout_width="344dp"
+        android:id="@+id/Gdzie_Text"
+        android:layout_width="343dp"
         android:layout_height="wrap_content"
         android:layout_alignStart="@+id/in_date"
         android:layout_alignTop="@+id/editText5"
@@ -58,24 +47,26 @@
         tools:ignore="LabelFor" />
 
     <EditText
+        android:id="@+id/Co_Text"
         android:layout_width="343dp"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/in_date"
-        android:layout_alignTop="@+id/editText6"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="141dp"
         android:ems="10"
         android:hint="@string/co"
         android:inputType="textMultiLine"
         tools:ignore="LabelFor" />
 
     <Button
+        android:id="@+id/add_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="36dp"
         android:layout_marginEnd="17dp"
-        android:text="@string/zatwierdz"
-        android:onClick="confirm"/>
+        android:text="@string/zatwierdz" />
 
     <Button
         android:id="@+id/btn_date"
@@ -86,5 +77,15 @@
         android:layout_marginEnd="25dp"
         android:text="@string/ustaw_date"
         tools:ignore="RelativeOverlap" />
+
+    <Button
+        android:id="@+id/cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="36dp"
+        android:layout_marginStart="17dp"
+        android:text="Anuluj" />
 
 </RelativeLayout>

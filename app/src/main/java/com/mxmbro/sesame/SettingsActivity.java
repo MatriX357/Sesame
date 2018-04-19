@@ -1,6 +1,7 @@
 package com.mxmbro.sesame;
 
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
@@ -18,6 +19,11 @@ import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.OnSharedPreferenceChangeListener;
+import android.preference.EditTextPreference;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -38,6 +44,10 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
      */
+
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
     private static final Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
@@ -159,9 +169,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 || GeneralPreferenceFragment.class.getName().equals(fragmentName)
                 || DataSyncPreferenceFragment.class.getName().equals(fragmentName)
                 || NotificationPreferenceFragment.class.getName().equals(fragmentName)
+                || SetPasswordFragment.class.getName().equals(fragmentName)
                 || ChangePasswordFragment.class.getName().equals(fragmentName);
     }
-
 
 
     /**
@@ -255,15 +265,16 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
     }
 
+
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static class ChangePasswordFragment extends PreferenceFragment{
+    public static class SetPasswordFragment extends PreferenceFragment {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            addPreferencesFromResource(R.xml.pref_change_password);
+            addPreferencesFromResource(R.xml.pref_set_password);
             setHasOptionsMenu(true);
 
-            //bindPreferenceSummaryToValue(findPreference("change_password"));
+
         }
 
         @Override
@@ -274,6 +285,52 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 return true;
             }
             return super.onOptionsItemSelected(item);
+        }
+        /*
+        String newPassword;
+        SharedPreferences sharedPreferences;
+
+        @Override
+        public void onResume(){
+            super.onResume();
+
+            newPassword = sharedPreferences.getString("newpassword", "");
+            if(!newPassword.equals("")){
+                startActivity(new Intent(getActivity(), ChangePasswordActivity.class));
+            }
+        }*/
+
+    }
+
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static class ChangePasswordFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_change_password);
+            setHasOptionsMenu(true);
+
+
+        }
+
+        @Override
+        public boolean onOptionsItemSelected(MenuItem item) {
+            int id = item.getItemId();
+            if (id == android.R.id.home) {
+                startActivity(new Intent(getActivity(), SettingsActivity.class));
+                return true;
+            }
+            return super.onOptionsItemSelected(item);
+        }
+
+    }
+
+    public class Preferences extends PreferenceActivity {
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            addPreferencesFromResource(R.xml.pref_set_password);
         }
 
     }

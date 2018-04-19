@@ -30,4 +30,9 @@ public class WelcomeActivity extends AppCompatActivity {
         thread.start();
     }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+        finish();
+    }
 }
