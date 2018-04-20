@@ -11,6 +11,7 @@ public class TasksSQLiteOpenHelper extends SQLiteOpenHelper {
 
     public static final String TASKS_TABLE = "tasks";
     public static final String TASK_ID = "id";
+    public static final String TASK_DATE = "long";
     public static final String TASK_WHAT = "what";
     public static final String TASK_WHERE = "wher";
     public static final String TASK_COMPLETE = "complete";
@@ -27,6 +28,7 @@ public class TasksSQLiteOpenHelper extends SQLiteOpenHelper {
     private void createTable(SQLiteDatabase db) {
         db.execSQL("create table " + TASKS_TABLE + " ( " +
                 TASK_ID + " integer primary key autoincrement not null, " +
+                TASK_DATE + " long, " +
                 TASK_WHAT + " text, " +
                 TASK_WHERE + " text, " +
                 TASK_COMPLETE + " text " +

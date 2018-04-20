@@ -15,6 +15,7 @@ import android.widget.EditText;
 import com.mxmbro.sesame.tasks.Task;
 
 import java.util.Calendar;
+import java.util.Date;
 
 public class AddActivity extends TaskManagerActivity implements View.OnClickListener {
 
@@ -25,6 +26,7 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
     private EditText taskWhereEditText;
     protected boolean changesPending;
     private AlertDialog unsavedChangesDialog;
+    private Date taskDate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +50,7 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
             int mYear = c.get(Calendar.YEAR);
             int mMonth = c.get(Calendar.MONTH);
             int mDay = c.get(Calendar.DAY_OF_MONTH);
+            taskDate = c.getTime();
 
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(this,
@@ -72,8 +75,8 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
     }
     protected void addTask() {
         String taskWhat = taskWhatEditText.getText().toString();
-        String taskWhere = taskWhatEditText.getText().toString();
-        Task t = new Task(taskWhat,taskWhere);
+        String taskWhere = taskWhereEditText.getText().toString();
+        Task t = new Task(taskWhat,taskWhere, taskDate);
         getStuffApplication().addTask(t);
         finish();
     }
@@ -121,6 +124,14 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
             }
         });
         taskWhatEditText.addTextChangedListener(new TextWatcher() {
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                changesPending = true;
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void afterTextChanged(Editable s) { }
+        });
+
+        taskWhereEditText.addTextChangedListener(new TextWatcher() {
             public void onTextChanged(CharSequence s, int start, int before, int count) {
                 changesPending = true;
             }

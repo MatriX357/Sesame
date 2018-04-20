@@ -23,24 +23,13 @@
         tools:ignore="ContentDescription,LabelFor" />
 
     <EditText
-        android:id="@+id/editText5"
-        android:layout_width="wrap_content"
+        android:id="@+id/Gdzie_Text"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/in_date"
-        android:layout_marginTop="19dp"
-        android:layout_toStartOf="@+id/in_date"
-        android:ems="10"
-        android:hint="@string/gdzie"
-        android:inputType="text"
-        tools:ignore="LabelFor" />
-
-    <EditText
-        android:id="@+id/Gdzie_Text"
-        android:layout_width="343dp"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/in_date"
-        android:layout_alignTop="@+id/editText5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="77dp"
         android:ems="10"
         android:hint="@string/gdzie"
         android:inputType="textMultiLine"
@@ -48,10 +37,11 @@
 
     <EditText
         android:id="@+id/Co_Text"
-        android:layout_width="343dp"
+        android:layout_width="335dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="141dp"
         android:ems="10"
         android:hint="@string/co"
