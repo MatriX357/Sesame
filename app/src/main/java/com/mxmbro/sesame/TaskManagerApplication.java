@@ -99,7 +99,7 @@ public class TaskManagerApplication extends Application {
 
     public void deleteTasks(Long[] ids) {
         StringBuffer idList = new StringBuffer();
-        for (int i =0; i< ids.length; i++) {
+        for (int i = 0; i < ids.length; i++) {
             idList.append(ids[i]);
             if (i < ids.length -1 ) {
                 idList.append(",");

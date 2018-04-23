@@ -4,6 +4,7 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,12 +13,13 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import com.mxmbro.sesame.adapters.TaskListAdapter;
 import com.mxmbro.sesame.tasks.Task;
 
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddActivity extends TaskManagerActivity implements View.OnClickListener {
+public class EditActivity extends TaskManagerActivity implements View.OnClickListener {
 
     Button btnDatePicker;
     EditText txtDate;
@@ -27,6 +29,7 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
     protected boolean changesPending;
     private AlertDialog unsavedChangesDialog;
     private Date taskDate;
+    private TaskListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +41,8 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
         txtDate= findViewById(R.id.in_date);
 
         btnDatePicker.setOnClickListener(this);
+        TaskManagerApplication app = (TaskManagerApplication) getApplication();
+        adapter = new TaskListAdapter(this, app.getCurrentTasks());
 
     }
 
@@ -71,12 +76,18 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-    protected void addTask() {
-        String taskWhat = taskWhatEditText.getText().toString();
-        String taskWhere = taskWhereEditText.getText().toString();
-        Task t = new Task(taskWhat,taskWhere, taskDate);
-        getStuffApplication().addTask(t);
+    protected void editTask() {
+        Task[] CT = adapter.CompletedTasks();
+        for (Task task : CT){
+            String taskWhat = taskWhatEditText.getText().toString();
+            String taskWhere = taskWhereEditText.getText().toString();
+            task.setWhat(taskWhat);
+            task.setWhere(taskWhere);
+            task.setDate(taskDate);
+            getStuffApplication().saveTask(task);
+        }
         finish();
+
     }
 
     protected void cancel() {
@@ -86,7 +97,7 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
                     .setMessage(R.string.unsaved_changes_message)
                     .setPositiveButton(R.string.dodaj_zadanie, new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
-                            addTask();
+                            editTask();
                         }
                     })
                     .setNeutralButton(R.string.discard, new AlertDialog.OnClickListener() {
@@ -108,12 +119,12 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
     private void setUpViews() {
         taskWhatEditText = findViewById(R.id.Co_Text);
         taskWhereEditText = findViewById(R.id.Gdzie_Text);
-        Button addButton = findViewById(R.id.add_b);
+        Button editButton = findViewById(R.id.add_b);
         Button cancelButton = findViewById(R.id.cancel);
 
-        addButton.setOnClickListener(new View.OnClickListener() {
+        editButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                addTask();
+                editTask();
             }
         });
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -138,4 +149,3 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
         });
     }
 }
-

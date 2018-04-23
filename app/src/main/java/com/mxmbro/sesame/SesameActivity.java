@@ -18,6 +18,8 @@ import com.mxmbro.sesame.tasks.Task;
 
 public class SesameActivity extends ListActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private TaskManagerApplication app;
+    private TaskListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,9 +87,12 @@ public class SesameActivity extends ListActivity
 
                 break;
             }
-            case R.id.Edit:
+            case R.id.Edit:{
+                Intent intent = new Intent(getApplicationContext(), EditActivity.class);
+                startActivity(intent);
 
                 break;
+            }
             case R.id.Delete: {
                 removeCompletedTasks();
                 break;
@@ -123,8 +128,6 @@ public class SesameActivity extends ListActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-    private TaskManagerApplication app;
-    private TaskListAdapter adapter;
 
     /** Called when the activity is first created. */
 

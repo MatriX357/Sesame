@@ -72,4 +72,14 @@ public class TaskListAdapter extends BaseAdapter {
         notifyDataSetChanged();
         return completedIds.toArray(new Long[]{});
     }
+    public Task[] CompletedTasks() {
+        ArrayList<Task> completedTasks = new ArrayList<>();
+        for (Task task : tasks) {
+            if (task.isComplete()) {
+                completedTasks.add(task);
+            }
+        }
+        return completedTasks.toArray(new Task[]{});
+    }
+
 }
