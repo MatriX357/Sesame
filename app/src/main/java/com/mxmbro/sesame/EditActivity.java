@@ -4,7 +4,6 @@ import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -30,6 +29,7 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
     private AlertDialog unsavedChangesDialog;
     private Date taskDate;
     private TaskListAdapter adapter;
+    Task[] CT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,7 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
         btnDatePicker.setOnClickListener(this);
         TaskManagerApplication app = (TaskManagerApplication) getApplication();
         adapter = new TaskListAdapter(this, app.getCurrentTasks());
+        CT = adapter.CompletedTasks();
 
     }
 
@@ -50,7 +51,6 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
 
         if (v == btnDatePicker) {
 
-            // Get Current Date
             final Calendar c = Calendar.getInstance();
             int mYear = c.get(Calendar.YEAR);
             int mMonth = c.get(Calendar.MONTH);
@@ -64,7 +64,9 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
                             txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                            c.set(year,monthOfYear,dayOfMonth);
+                            c.set(year,monthOfYear,dayOfMonth,0,0,0);
+                            c.set(Calendar.MILLISECOND,0);
+                            System.out.println(c.getTimeInMillis());
                             taskDate = c.getTime();
                         }
                     }, mYear, mMonth, mDay);
@@ -77,7 +79,6 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
 
     }
     protected void editTask() {
-        Task[] CT = adapter.CompletedTasks();
         for (Task task : CT){
             String taskWhat = taskWhatEditText.getText().toString();
             String taskWhere = taskWhereEditText.getText().toString();

@@ -8,8 +8,10 @@ import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASK_WHAT;
 import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASK_WHERE;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
+import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.ContentValues;
 import android.database.Cursor;
@@ -20,28 +22,55 @@ import  com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper;
 
 public class TaskManagerApplication extends Application {
 
-    private static final String SHARED_PREFS_FILE = "shared_prefs_file";
-    private static final String TASKS = "tasks";
     private ArrayList<Task> currentTasks;
     private SQLiteDatabase database;
 
-    @Override
     public void onCreate() {
         super.onCreate();
         TasksSQLiteOpenHelper helper = new TasksSQLiteOpenHelper(this);
         database = helper.getWritableDatabase();
 
+
         if (null == currentTasks) {
             loadTasks();
+        }else {
+            viewToday();
         }
     }
 
     private void loadTasks() {
-        currentTasks = new ArrayList<Task>();
+        currentTasks = new ArrayList<>();
         Cursor tasksCursor = database.query(TASKS_TABLE,
                 new String[] {TASK_ID, TASK_DATE, TASK_WHAT, TASK_WHERE, TASK_COMPLETE},
                 null, null, null, null, String.format("%s,%s,%s,%s", TASK_COMPLETE, TASK_DATE, TASK_WHAT, TASK_WHERE));
 
+        tasksCursor.moveToFirst();
+        Task t;
+        if (! tasksCursor.isAfterLast()) {
+            do {
+                int id = tasksCursor.getInt(0);
+                Long date = tasksCursor.getLong(1);
+                String what = tasksCursor.getString(2);
+                String where = tasksCursor.getString(3);
+                String boolValue = tasksCursor.getString(4);
+                boolean complete = Boolean.parseBoolean(boolValue);
+                t = new Task(what, where, new Date(date));
+                t.setId(id);
+                t.setComplete(complete);
+                currentTasks.add(t);
+            } while(tasksCursor.moveToNext());
+        }
+    }
+
+    void viewToday() {
+        currentTasks = new ArrayList<>();
+        Calendar c = Calendar.getInstance();
+        c.set(Calendar.HOUR_OF_DAY,0);
+        c.set(Calendar.MINUTE,0);
+        c.set(Calendar.SECOND,0);
+        c.set(Calendar.MILLISECOND,0);
+        System.out.println(c.getTimeInMillis());
+        @SuppressLint("Recycle") Cursor tasksCursor = database.rawQuery("select * from "+TASKS_TABLE+" where "+TASK_DATE+" = "+ c.getTimeInMillis(),null);
         tasksCursor.moveToFirst();
         Task t;
         if (! tasksCursor.isAfterLast()) {

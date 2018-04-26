@@ -59,7 +59,9 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
                             txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                            c.set(year,monthOfYear,dayOfMonth);
+                            c.set(year,monthOfYear,dayOfMonth,0,0,0);
+                            c.set(Calendar.MILLISECOND,0);
+                            System.out.println(c.getTimeInMillis());
                             taskDate = c.getTime();
                         }
                     }, mYear, mMonth, mDay);

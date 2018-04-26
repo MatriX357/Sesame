@@ -28,7 +28,7 @@ public class TasksSQLiteOpenHelper extends SQLiteOpenHelper {
     private void createTable(SQLiteDatabase db) {
         db.execSQL("create table " + TASKS_TABLE + " ( " +
                 TASK_ID + " integer primary key autoincrement not null, " +
-                TASK_DATE + " long, " +
+                TASK_DATE + " integer, " +
                 TASK_WHAT + " text, " +
                 TASK_WHERE + " text, " +
                 TASK_COMPLETE + " text " +

@@ -98,9 +98,10 @@ public class SesameActivity extends ListActivity
                 break;
             }
 
-            case R.id.Today:
-
+            case R.id.Today: {
+                app.viewToday();
                 break;
+            }
             case R.id.Week:
 
                 break;

@@ -52,6 +52,7 @@ public class Task implements Serializable{
     public String toString() {
         Calendar c = Calendar.getInstance();
         c.setTime(Date);
+        System.out.println(c.getTimeInMillis());
         return c.get(Calendar.DAY_OF_MONTH) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR) + " " + Where + " " + What;
     }
 
@@ -73,5 +74,11 @@ public class Task implements Serializable{
 
     public long getId() {
         return id;
+    }
+
+    public String getDateString() {
+        Calendar c = Calendar.getInstance();
+        c.setTime(Date);
+        return c.get(Calendar.DAY_OF_MONTH) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR);
     }
 }
