@@ -13,8 +13,8 @@ import android.widget.BaseAdapter;
 
 public class TaskListAdapter extends BaseAdapter {
 
-    private ArrayList<Task> tasks;
-    private Context context;
+    private final ArrayList<Task> tasks;
+    private final Context context;
 
     public TaskListAdapter(Context context, ArrayList<Task> tasks) {
         super();
@@ -60,8 +60,8 @@ public class TaskListAdapter extends BaseAdapter {
     }
 
     public Long[] removeCompletedTasks() {
-        ArrayList<Task> completedTasks = new ArrayList<Task>();
-        ArrayList<Long> completedIds = new ArrayList<Long>();
+        ArrayList<Task> completedTasks = new ArrayList<>();
+        ArrayList<Long> completedIds = new ArrayList<>();
         for (Task task : tasks) {
             if (task.isComplete()) {
                 completedTasks.add(task);

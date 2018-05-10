@@ -19,12 +19,12 @@ import java.util.Date;
 
 public class AddActivity extends TaskManagerActivity implements View.OnClickListener {
 
-    Button btnDatePicker;
-    EditText txtDate;
+    private Button btnDatePicker;
+    private EditText txtDate;
 
     private EditText taskWhatEditText;
     private EditText taskWhereEditText;
-    protected boolean changesPending;
+    private boolean changesPending;
     private AlertDialog unsavedChangesDialog;
     private Date taskDate;
 
@@ -73,7 +73,7 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-    protected void addTask() {
+    private void addTask() {
         String taskWhat = taskWhatEditText.getText().toString();
         String taskWhere = taskWhereEditText.getText().toString();
         Task t = new Task(taskWhat,taskWhere, taskDate);
@@ -81,12 +81,12 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
         finish();
     }
 
-    protected void cancel() {
+    private void cancel() {
         if (changesPending) {
             unsavedChangesDialog = new AlertDialog.Builder(this)
                     .setTitle(R.string.unsaved_changes_title)
                     .setMessage(R.string.unsaved_changes_message)
-                    .setPositiveButton(R.string.dodaj_zadanie, new AlertDialog.OnClickListener() {
+                    .setPositiveButton(R.string.add_task, new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             addTask();
                         }

@@ -29,48 +29,43 @@ public class TaskManagerApplication extends Application {
         super.onCreate();
         TasksSQLiteOpenHelper helper = new TasksSQLiteOpenHelper(this);
         database = helper.getWritableDatabase();
-
-
-        if (null == currentTasks) {
-            loadTasks();
-        }else {
-            viewToday();
-        }
     }
 
-    private void loadTasks() {
+    @SuppressLint("Recycle")
+    void loadTasks(String mode) {
         currentTasks = new ArrayList<>();
-        Cursor tasksCursor = database.query(TASKS_TABLE,
-                new String[] {TASK_ID, TASK_DATE, TASK_WHAT, TASK_WHERE, TASK_COMPLETE},
-                null, null, null, null, String.format("%s,%s,%s,%s", TASK_COMPLETE, TASK_DATE, TASK_WHAT, TASK_WHERE));
-
-        tasksCursor.moveToFirst();
-        Task t;
-        if (! tasksCursor.isAfterLast()) {
-            do {
-                int id = tasksCursor.getInt(0);
-                Long date = tasksCursor.getLong(1);
-                String what = tasksCursor.getString(2);
-                String where = tasksCursor.getString(3);
-                String boolValue = tasksCursor.getString(4);
-                boolean complete = Boolean.parseBoolean(boolValue);
-                t = new Task(what, where, new Date(date));
-                t.setId(id);
-                t.setComplete(complete);
-                currentTasks.add(t);
-            } while(tasksCursor.moveToNext());
-        }
-    }
-
-    void viewToday() {
-        currentTasks = new ArrayList<>();
+        Cursor tasksCursor;
         Calendar c = Calendar.getInstance();
         c.set(Calendar.HOUR_OF_DAY,0);
         c.set(Calendar.MINUTE,0);
         c.set(Calendar.SECOND,0);
         c.set(Calendar.MILLISECOND,0);
-        System.out.println(c.getTimeInMillis());
-        @SuppressLint("Recycle") Cursor tasksCursor = database.rawQuery("select * from "+TASKS_TABLE+" where "+TASK_DATE+" = "+ c.getTimeInMillis(),null);
+        Calendar d = Calendar.getInstance();
+        d.set(Calendar.HOUR_OF_DAY,0);
+        d.set(Calendar.MINUTE,0);
+        d.set(Calendar.SECOND,0);
+        d.set(Calendar.MILLISECOND,0);
+        switch (mode) {
+            case "today":
+                tasksCursor = database.rawQuery("select * from " + TASKS_TABLE + " where " + TASK_DATE + " = " + c.getTimeInMillis() + " order by " + TASK_DATE + ", " + TASK_WHAT, null);
+                break;
+            case "week":
+                int dow = c.get(Calendar.DAY_OF_WEEK);
+                c.set(Calendar.DAY_OF_YEAR, c.get(Calendar.DAY_OF_YEAR) - dow + 2);
+                d.set(Calendar.DAY_OF_YEAR, d.get(Calendar.DAY_OF_YEAR) + (7 - dow + 2));
+                tasksCursor = database.rawQuery("select * from " + TASKS_TABLE + " where " + TASK_DATE + " >= " + c.getTimeInMillis() + " and " + TASK_DATE + " < " + d.getTimeInMillis() + " order by " + TASK_DATE + ", " + TASK_WHAT, null);
+                break;
+            case "month":
+                int moy = c.get(Calendar.MONTH);
+                c.set(Calendar.DAY_OF_MONTH, 1);
+                d.set(Calendar.DAY_OF_MONTH, 1);
+                d.set(Calendar.MONTH, moy + 1);
+                tasksCursor = database.rawQuery("select * from " + TASKS_TABLE + " where " + TASK_DATE + " >= " + c.getTimeInMillis() + " and " + TASK_DATE + " < " + d.getTimeInMillis() + " order by " + TASK_DATE + ", " + TASK_WHAT, null);
+                break;
+            default:
+                tasksCursor = database.rawQuery("select * from " + TASKS_TABLE + " order by " + TASK_DATE + ", " + TASK_WHAT, null);
+                break;
+        }
         tasksCursor.moveToFirst();
         Task t;
         if (! tasksCursor.isAfterLast()) {
@@ -121,7 +116,7 @@ public class TaskManagerApplication extends Application {
         values.put(TASK_COMPLETE, Boolean.toString(t.isComplete()));
 
         long id = t.getId();
-        String where = String.format("%s = %d", TASK_ID, id);
+        String where = String.format(getString(R.string.rsrc), TASK_ID, id);
         database.update(TASKS_TABLE, values, where, null);
 
     }

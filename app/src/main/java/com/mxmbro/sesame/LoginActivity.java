@@ -2,7 +2,6 @@ package com.mxmbro.sesame;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
@@ -290,7 +289,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
-    @SuppressLint("StaticFieldLeak")
     @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 

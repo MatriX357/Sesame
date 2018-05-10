@@ -1,10 +1,7 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Sesame</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
     <string name="action_sign_in_short">Sign in</string>
     <string name="error_invalid_email">This email address is invalid</string>
     <string name="error_invalid_password">This password is too short</string>
@@ -18,7 +15,6 @@
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
-    <string name="pref_header_general">General</string>
 
     <string name="pref_title_social_recommendations">Enable social recommendations</string>
     <string name="pref_description_social_recommendations">Recommendations for people to contact
@@ -41,7 +37,6 @@
     </string-array>
 
     <!-- Example settings for Data & Sync -->
-    <string name="pref_header_data_sync">Data &amp; sync</string>
 
     <string name="pref_title_sync_frequency">Sync frequency</string>
     <string-array name="pref_sync_frequency_titles">
@@ -72,47 +67,43 @@
     <string name="pref_ringtone_silent">Cisza</string>
 
     <string name="pref_title_vibrate">Wibracja</string>
-    <string name="nowe_haslo" tools:ignore="Typos">Nowe hasło</string>
-    <string name="zmien">Zmień</string>
+    <string name="new_password">Nowe hasło</string>
+    <string name="change">Zmień</string>
     <string name="stare_haslo">Stare hasło</string>
-    <string name="title_activity_login">Sign in</string>
     <string name="title_activity_main2">Sesame</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="organizer_zadan">Organizer Zadan</string>
+    <string name="task_manager">Organizer Zadan</string>
     <string name="sesame">Sesame</string>
-    <string name="dodaj_zadanie">Dodaj zadanie</string>
-    <string name="edytuj_zadanie">Edytuj Zadanie</string>
-    <string name="usun_zadanie">Usuń Zadanie</string>
-    <string name="widoki">Widoki</string>
-    <string name="na_dzisiaj">Na Dzisiaj</string>
-    <string name="na_ten_tydzien">Na ten tydzień</string>
-    <string name="na_ten_miesiac">Na ten miesiąc</string>
-    <string name="ustawienia">Ustawienia</string>
-    <string name="wyloguj">Wyloguj</string>
-    <string name="ustawienia2">Ustawienia2</string>
+    <string name="add_task">Dodaj zadanie</string>
+    <string name="edit_task">Edytuj Zadanie</string>
+    <string name="delete_task">Usuń Zadanie</string>
+    <string name="views">Tryby wyświetlania</string>
+    <string name="for_Today">Na Dzisiaj</string>
+    <string name="for_Week">Na ten tydzień</string>
+    <string name="for_Month">Na ten miesiąc</string>
+    <string name="settings">Ustawienia</string>
+    <string name="logout">Wyloguj</string>
+    <string name="All">Wszystkie</string>
     <string name="pref_header_change_password">Zmień hasło</string>
     <string name="pref_header_set_password">Ustawienia hasła</string>
     <string name="todo">TODO</string>
-    <string name="inne">inne</string>
-    <string name="zmien_haslo">Zmień hasło</string>
-    <string name="dostosuj_wyglad">Dostosuj wygląd</string>
-    <string name="ustawienia_powiadomie">Ustawienia powiadomień</string>
-    <string name="data">Data</string>
-    <string name="gdzie">Gdzie?</string>
-    <string name="co">Co?</string>
-    <string name="zatwierdz">Zatwierdź</string>
-    <string name="ustaw_date">Ustaw Date</string>
+    <string name="others">inne</string>
+    <string name="date">Data</string>
+    <string name="where">Gdzie?</string>
+    <string name="what">Co?</string>
+    <string name="confirm">Zatwierdź</string>
+    <string name="set_date">Ustaw Date</string>
     <string name="Welcome">TODO</string>
     <string name="Sesamelogo">TODO</string>
-    <string name="pin">Kod PIN</string>
     <string name="haslo">Hasło</string>
-    <string name="zaloguj">Zaloguj</string>
-    <string name="zaloguj_sie">Zaloguj się</string>
+    <string name="login">Zaloguj się</string>
     <string name="unsaved_changes_title">Unsaved Changes</string>
     <string name="unsaved_changes_message">Would you like to add this task?</string>
     <string name="discard">Discard</string>
-    <string name="no_tasks">No tasks.</string>
+    <string name="no_tasks">Brak zadań</string>
+    <string name="rsrc">%s = %d</string>
+    <string name="Cancel">Anuluj</string>
 
 </resources>

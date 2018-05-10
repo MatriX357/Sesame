@@ -20,16 +20,15 @@ import java.util.Date;
 
 public class EditActivity extends TaskManagerActivity implements View.OnClickListener {
 
-    Button btnDatePicker;
-    EditText txtDate;
+    private Button btnDatePicker;
+    private EditText txtDate;
 
     private EditText taskWhatEditText;
     private EditText taskWhereEditText;
-    protected boolean changesPending;
+    private boolean changesPending;
     private AlertDialog unsavedChangesDialog;
     private Date taskDate;
-    private TaskListAdapter adapter;
-    Task[] CT;
+    private Task[] CT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +41,7 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
 
         btnDatePicker.setOnClickListener(this);
         TaskManagerApplication app = (TaskManagerApplication) getApplication();
-        adapter = new TaskListAdapter(this, app.getCurrentTasks());
+        TaskListAdapter adapter = new TaskListAdapter(this, app.getCurrentTasks());
         CT = adapter.CompletedTasks();
 
     }
@@ -78,7 +77,7 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
-    protected void editTask() {
+    private void editTask() {
         for (Task task : CT){
             String taskWhat = taskWhatEditText.getText().toString();
             String taskWhere = taskWhereEditText.getText().toString();
@@ -91,12 +90,12 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
 
     }
 
-    protected void cancel() {
+    private void cancel() {
         if (changesPending) {
             unsavedChangesDialog = new AlertDialog.Builder(this)
                     .setTitle(R.string.unsaved_changes_title)
                     .setMessage(R.string.unsaved_changes_message)
-                    .setPositiveButton(R.string.dodaj_zadanie, new AlertDialog.OnClickListener() {
+                    .setPositiveButton(R.string.add_task, new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             editTask();
                         }

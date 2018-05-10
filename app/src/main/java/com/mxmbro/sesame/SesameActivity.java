@@ -36,6 +36,7 @@ public class SesameActivity extends ListActivity
         navigationView.setNavigationItemSelectedListener(this);
 
         app = (TaskManagerApplication) getApplication();
+        app.loadTasks("all");
         adapter = new TaskListAdapter(this, app.getCurrentTasks());
         setListAdapter(adapter);
         }
@@ -74,7 +75,6 @@ public class SesameActivity extends ListActivity
         return super.onOptionsItemSelected(item);
     }
 
-    @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
@@ -99,15 +99,29 @@ public class SesameActivity extends ListActivity
             }
 
             case R.id.Today: {
-                app.viewToday();
+                app.loadTasks("today");
+                adapter = new TaskListAdapter(this, app.getCurrentTasks());
+                setListAdapter(adapter);
                 break;
             }
-            case R.id.Week:
-
+            case R.id.Week: {
+                app.loadTasks("week");
+                adapter = new TaskListAdapter(this, app.getCurrentTasks());
+                setListAdapter(adapter);
                 break;
-            case R.id.Month:
-
+            }
+            case R.id.Month: {
+                app.loadTasks("month");
+                adapter = new TaskListAdapter(this, app.getCurrentTasks());
+                setListAdapter(adapter);
                 break;
+            }
+            case R.id.All:{
+                app.loadTasks("all");
+                adapter = new TaskListAdapter(this, app.getCurrentTasks());
+                setListAdapter(adapter);
+                break;
+            }
             case R.id.Log_Out: {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 finish();
@@ -146,7 +160,7 @@ public class SesameActivity extends ListActivity
         app.saveTask(t);
     }
 
-    protected void removeCompletedTasks() {
+    private void removeCompletedTasks() {
         Long[] ids = adapter.removeCompletedTasks();
         app.deleteTasks(ids);
     }

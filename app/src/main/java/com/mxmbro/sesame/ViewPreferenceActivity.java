@@ -3,12 +3,13 @@ package com.mxmbro.sesame;
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.TextView;
+
+import java.util.Objects;
 
 public class ViewPreferenceActivity extends Activity {
 
     SharedPreferences sharedPreferences;
-    String newPassword;
+    private String newPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,8 @@ public class ViewPreferenceActivity extends Activity {
         SharedPreferences sharedPreferences = null;
 
 
-        newPassword = sharedPreferences.getString("newpassword", "brak");
+        //noinspection ConstantConditions
+        //newPassword = Objects.requireNonNull(null).getString("newpassword", "brak");
 
 
         }

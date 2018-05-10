@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/zaloguj" />
+            android:label="@string/login" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -41,5 +41,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".SettingsActivity$Preferences" />
+        <activity android:name=".ViewPreferenceActivity" />
+        <activity android:name=".TaskManagerActivity" />
     </application>
 </manifest>

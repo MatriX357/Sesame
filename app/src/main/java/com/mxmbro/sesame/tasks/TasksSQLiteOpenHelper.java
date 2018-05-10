@@ -6,8 +6,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class TasksSQLiteOpenHelper extends SQLiteOpenHelper {
 
-    public static final String DB_NAME = "tasks_db.sqllite";
-    public static final int VERSION = 1;
+    private static final String DB_NAME = "tasks_db.sqllite";
+    private static final int VERSION = 1;
 
     public static final String TASKS_TABLE = "tasks";
     public static final String TASK_ID = "id";
