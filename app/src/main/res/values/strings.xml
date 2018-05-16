@@ -105,5 +105,6 @@
     <string name="no_tasks">Brak zadań</string>
     <string name="rsrc">%s = %d</string>
     <string name="Cancel">Anuluj</string>
+    <string name="set_password">Ustaw hasło</string>
 
 </resources>

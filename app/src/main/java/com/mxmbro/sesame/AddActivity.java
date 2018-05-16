@@ -34,8 +34,8 @@ public class AddActivity extends TaskManagerActivity implements View.OnClickList
         setContentView(R.layout.activity_add);
         setUpViews();
 
-        btnDatePicker= findViewById(R.id.btn_date);
-        txtDate= findViewById(R.id.in_date);
+        btnDatePicker = findViewById(R.id.btn_date);
+        txtDate = findViewById(R.id.in_date);
 
         btnDatePicker.setOnClickListener(this);
 

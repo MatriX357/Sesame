@@ -1,5 +1,6 @@
 package com.mxmbro.sesame;
 
+import android.preference.EditTextPreference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +12,7 @@ public class ChangePasswordActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_change_password);
 
-       // EditTextPreference password = (EditTextPreference)getText(newpassword);
+        //EditTextPreference password = (EditTextPreference)getText(R.id.new_password);
     }
 
     public void changePassword(View view) {

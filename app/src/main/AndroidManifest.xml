@@ -42,7 +42,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SettingsActivity$Preferences" />
-        <activity android:name=".ViewPreferenceActivity" />
         <activity android:name=".TaskManagerActivity" />
+
     </application>
 </manifest>
