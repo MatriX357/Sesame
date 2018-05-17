@@ -1,10 +1,10 @@
 package com.mxmbro.sesame;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
+import android.database.sqlite.SQLiteDatabase;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -21,15 +21,9 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.content.SharedPreferences;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
+import com.mxmbro.sesame.systems.LogSystem;
+import com.mxmbro.sesame.systems.PasswordSQLiteOpenHelper;
+
 import java.util.List;
 
 /**
@@ -52,6 +46,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    static SQLiteDatabase database;
 
     private static final Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
@@ -273,54 +268,21 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class SetPasswordFragment extends PreferenceFragment {
-        private static final String preferences_name = "myPreferences";
-        private static final String preferences_text_field = "textField";
-        private SharedPreferences preferences;
         @Override
         public void onCreate(Bundle savedInstanceState) {
+            PasswordSQLiteOpenHelper helper = new PasswordSQLiteOpenHelper(this);
+            database = helper.getWritableDatabase();
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_set_password);
             setHasOptionsMenu(true);
             Preference preference = findPreference("newpassword");
             String value = PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), "");
             System.out.println(value);
-            //preferences = getSharedPreferences(preferences_name, Activity.MODE_PRIVATE);
-
             try {
-                SaveLoadSystem.writeFile("user.save", "value");
-            } catch (IOException e) {
+                LogSystem.setPassword(database, value.toCharArray());
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-
-/*
-            try {
-                System.out.println("try");
-                FileWriter fileWriter = new FileWriter("user.save");
-                BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-                bufferedWriter.write("test");
-                bufferedWriter.close();
-            }
-            catch (IOException e) {
-                e.printStackTrace();
-
-            }
-
-
-            try {
-                FileReader fileReader = new FileReader("user.save");
-                BufferedReader bufferedReader = new BufferedReader(fileReader);
-                String textLine = bufferedReader.readLine();
-                do {
-                    System.out.println(textLine);
-                    textLine = bufferedReader.readLine();
-                } while (textLine != null);
-                bufferedReader.close();
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }*/
-
 
         }
 

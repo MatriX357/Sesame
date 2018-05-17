@@ -1,15 +1,20 @@
 package com.mxmbro.sesame;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.preference.EditTextPreference;
-import android.preference.Preference;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.widget.EditText;
+
+import com.mxmbro.sesame.systems.LogSystem;
+import com.mxmbro.sesame.systems.PasswordSQLiteOpenHelper;
+import com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper;
+
+import java.io.File;
+import java.util.Arrays;
 
 public class WelcomeActivity extends AppCompatActivity {
-    boolean czyHaslo = true;
+    char[] pss = {};
+
 
 
     @Override
@@ -17,21 +22,24 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
 
-
-        Thread thread = new Thread(){
+        final Thread thread = new Thread(){
             public void run() {
                 try {
                     sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 } finally {
-                    if (czyHaslo == true) {
-                        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                        startActivity(intent);
-                    }
-                    else {
-                        Intent intent = new Intent(getApplicationContext(), SesameActivity.class);
-                        startActivity(intent);
+                    try {
+                        if (Arrays.equals(LogSystem.getPassword(database), pss)) {
+                            Intent intent = new Intent(getApplicationContext(), SesameActivity.class);
+                            startActivity(intent);
+                        }
+                        else {
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                            startActivity(intent);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
                 }
 
