@@ -1,10 +1,10 @@
-package com.mxmbro.sesame.tasks;
+package com.mxmbro.sesame.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-public class TasksSQLiteOpenHelper extends SQLiteOpenHelper {
+public class SesameSQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
 
     private static final String DB_NAME = "tasks_db.sqllite";
     private static final int VERSION = 1;
@@ -15,8 +15,10 @@ public class TasksSQLiteOpenHelper extends SQLiteOpenHelper {
     public static final String TASK_WHAT = "what";
     public static final String TASK_WHERE = "wher";
     public static final String TASK_COMPLETE = "complete";
+    public static final String TASKS_TABLE2 = "Password";
+    public static final String PASSWORD = "Password";
 
-    public TasksSQLiteOpenHelper(Context context) {
+    public SesameSQLiteOpenHelper(Context context) {
         super(context, DB_NAME, null, VERSION);
     }
 
@@ -33,6 +35,10 @@ public class TasksSQLiteOpenHelper extends SQLiteOpenHelper {
                 TASK_WHERE + " text, " +
                 TASK_COMPLETE + " text " +
                 ");"
+        );
+        db.execSQL("create table " + TASKS_TABLE2 + " ( " + PASSWORD + ");"
+        );
+        db.execSQL("insert into " + TASKS_TABLE2 + " values ( " + "'0'" + ");"
         );
     }
 

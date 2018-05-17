@@ -1,5 +1,6 @@
 package com.mxmbro.sesame;
 
+import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
@@ -21,9 +22,6 @@ import android.text.TextUtils;
 import android.view.MenuItem;
 import android.content.SharedPreferences;
 
-import com.mxmbro.sesame.systems.LogSystem;
-import com.mxmbro.sesame.systems.PasswordSQLiteOpenHelper;
-
 import java.util.List;
 
 /**
@@ -43,10 +41,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
      */
-
-    SharedPreferences sharedPreferences;
-    SharedPreferences.Editor editor;
-    static SQLiteDatabase database;
 
     private static final Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
@@ -268,23 +262,17 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class SetPasswordFragment extends PreferenceFragment {
+
         @Override
         public void onCreate(Bundle savedInstanceState) {
-            PasswordSQLiteOpenHelper helper = new PasswordSQLiteOpenHelper(this);
-            database = helper.getWritableDatabase();
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.pref_set_password);
             setHasOptionsMenu(true);
             Preference preference = findPreference("newpassword");
             String value = PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), "");
-            System.out.println(value);
-            try {
-                LogSystem.setPassword(database, value.toCharArray());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            TaskManagerApplication.SetPassword(value.toCharArray());
         }
+
 
         @Override
         public boolean onOptionsItemSelected(MenuItem item) {
@@ -297,6 +285,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         }
 
     }
+
 
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)

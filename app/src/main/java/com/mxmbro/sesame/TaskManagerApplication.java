@@ -1,13 +1,18 @@
 package com.mxmbro.sesame;
 
-import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASKS_TABLE;
-import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASK_COMPLETE;
-import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASK_DATE;
-import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASK_ID;
-import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASK_WHAT;
-import static com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper.TASK_WHERE;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.PASSWORD;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASKS_TABLE;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASKS_TABLE2;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_COMPLETE;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_DATE;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_ID;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_WHAT;
+import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_WHERE;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -18,16 +23,17 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import  com.mxmbro.sesame.tasks.Task;
-import  com.mxmbro.sesame.tasks.TasksSQLiteOpenHelper;
+import com.mxmbro.sesame.helper.SesameSQLiteOpenHelper;
 
 public class TaskManagerApplication extends Application {
 
+    private static SQLiteDatabase database2;
     private ArrayList<Task> currentTasks;
     private SQLiteDatabase database;
 
     public void onCreate() {
         super.onCreate();
-        TasksSQLiteOpenHelper helper = new TasksSQLiteOpenHelper(this);
+        SesameSQLiteOpenHelper helper = new SesameSQLiteOpenHelper(this);
         database = helper.getWritableDatabase();
     }
 
@@ -132,5 +138,29 @@ public class TaskManagerApplication extends Application {
 
         String where = String.format("%s in (%s)", TASK_ID, idList);
         database.delete(TASKS_TABLE, where, null);
+    }
+
+    public char[] getPassword() {
+        char[] password = {};
+        try (Cursor tasksCursor = database.rawQuery(getString(R.string.SelectFrom) +" "+ TASKS_TABLE2, null)) {
+            tasksCursor.moveToFirst();
+            if (!tasksCursor.isAfterLast()) {
+                password = tasksCursor.getString(0).toCharArray();
+            }
+        }
+        System.out.println(password);
+        return password;
+
+    }
+    public void setPassword(char[] pss0) {
+        ContentValues values = new ContentValues();
+        values.put(PASSWORD, Arrays.toString(pss0));
+        database.update(TASKS_TABLE2, values, null, null);
+    }
+
+    public static void SetPassword(char[] pss0) {
+        ContentValues values = new ContentValues();
+        values.put(PASSWORD, Arrays.toString(pss0));
+        database2.update(TASKS_TABLE2, values, null, null);
     }
 }

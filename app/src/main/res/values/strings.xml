@@ -106,5 +106,6 @@
     <string name="rsrc">%s = %d</string>
     <string name="Cancel">Anuluj</string>
     <string name="set_password">Ustaw hasło</string>
+    <string name="SelectFrom">select * from </string>
 
 </resources>

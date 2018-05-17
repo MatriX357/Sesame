@@ -16,9 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity
-            android:name=".LoginActivity"
-            android:label="@string/login" />
+
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" />
@@ -43,6 +41,8 @@
         </activity>
         <activity android:name=".SettingsActivity$Preferences" />
         <activity android:name=".TaskManagerActivity" />
+        <activity android:name=".LoginActivity" />
 
     </application>
+
 </manifest>
