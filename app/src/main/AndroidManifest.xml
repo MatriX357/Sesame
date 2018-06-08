@@ -22,8 +22,7 @@
             android:label="@string/title_activity_settings" />
         <activity
             android:name=".SesameActivity"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:label="@string/title_activity_main2">
             <intent-filter>
                 <action android:name=".SesameActivity" />
                 <category android:name="android.Intent.category.DEFAULT"/>
