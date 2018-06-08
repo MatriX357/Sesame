@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 
 public class LoginActivity extends AppCompatActivity  {
-    EditText taskPassword = findViewById(R.id.password);
+    private final EditText taskPassword = findViewById(R.id.password);
     private TaskManagerApplication app;
 
     @Override

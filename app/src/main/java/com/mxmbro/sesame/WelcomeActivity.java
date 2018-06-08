@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import java.util.Arrays;
 
 public class WelcomeActivity extends AppCompatActivity {
-    char[] pss = "0".toCharArray();
+    private final char[] pss = "0".toCharArray();
     private TaskManagerApplication app;
 
 

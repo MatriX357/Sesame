@@ -1,16 +1,20 @@
 package com.mxmbro.sesame.views;
 
+import com.mxmbro.sesame.R;
 import com.mxmbro.sesame.tasks.Task;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.widget.CheckedTextView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class TaskListItem extends LinearLayout {
 
     private Task task;
-    private CheckedTextView checkbox;
+    private TextView checkbox;
+    private TextView what;
+    private TextView where;
+    private TextView date;
 
     public TaskListItem(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -19,13 +23,23 @@ public class TaskListItem extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        checkbox = findViewById(android.R.id.text1);
+        checkbox = findViewById(R.id.finished);
+        what = findViewById(R.id.what);
+        where = findViewById(R.id.where);
+        date = findViewById(R.id.date);
     }
 
     public void setTask(Task task) {
         this.task = task;
-        checkbox.setText(task.toString());
-        checkbox.setChecked(task.isComplete());
+        if (task.isComplete()){
+            checkbox.setText(R.string.finished);
+        }else{
+            checkbox.setText(R.string.not_finished);
+        }
+
+        what.setText(task.getWhat());
+        where.setText(task.getWhere());
+        date.setText(task.getDateString());
     }
 
     public Task getTask() {

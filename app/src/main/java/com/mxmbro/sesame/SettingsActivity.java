@@ -1,11 +1,9 @@
 package com.mxmbro.sesame;
 
-import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Configuration;
-import android.database.sqlite.SQLiteDatabase;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -20,7 +18,6 @@ import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.text.TextUtils;
 import android.view.MenuItem;
-import android.content.SharedPreferences;
 
 import java.util.List;
 
@@ -269,8 +266,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             addPreferencesFromResource(R.xml.pref_set_password);
             setHasOptionsMenu(true);
             Preference preference = findPreference("newpassword");
-            String value = PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), "");
-            TaskManagerApplication.SetPassword(value.toCharArray());
+            TaskManagerApplication.password = PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), "");
         }
 
 

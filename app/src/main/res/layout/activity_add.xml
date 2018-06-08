@@ -8,39 +8,42 @@
     tools:showIn="navigation_view">
 
     <EditText
-        android:id="@+id/in_date"
+        android:id="@+id/btn_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="14dp"
-        android:contentDescription="@string/date"
         android:ems="10"
         android:hint="@string/date"
-        android:inputType="date"
-        tools:ignore="ContentDescription,LabelFor" />
+        android:inputType="date" />
 
     <EditText
         android:id="@+id/Gdzie_Text"
-        android:layout_width="335dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="77dp"
         android:ems="10"
-        android:forceHasOverlappingRendering="false"
         android:hint="@string/where"
         android:inputType="textMultiLine" />
 
     <EditText
         android:id="@+id/Co_Text"
-        android:layout_width="335dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginTop="141dp"
         android:ems="10"
         android:hint="@string/what"
@@ -54,18 +57,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="36dp"
         android:layout_marginEnd="17dp"
-        android:text="@string/confirm"
-        tools:ignore="RelativeOverlap" />
-
-    <Button
-        android:id="@+id/btn_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/in_date"
-        android:layout_marginEnd="25dp"
-        android:text="@string/set_date"
-        tools:ignore="RelativeOverlap" />
+        android:text="@string/confirm" />
 
     <Button
         android:id="@+id/cancel"
@@ -75,6 +67,6 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="36dp"
         android:layout_marginStart="17dp"
-        android:text="@string/Cancel" />
+        android:text="@string/cancel" />
 
 </RelativeLayout>

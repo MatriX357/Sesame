@@ -9,8 +9,6 @@ import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_ID;
 import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_WHAT;
 import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.TASK_WHERE;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
@@ -27,7 +25,7 @@ import com.mxmbro.sesame.helper.SesameSQLiteOpenHelper;
 
 public class TaskManagerApplication extends Application {
 
-    private static SQLiteDatabase database2;
+    public static String password;
     private ArrayList<Task> currentTasks;
     private SQLiteDatabase database;
 
@@ -156,11 +154,5 @@ public class TaskManagerApplication extends Application {
         ContentValues values = new ContentValues();
         values.put(PASSWORD, Arrays.toString(pss0));
         database.update(TASKS_TABLE2, values, null, null);
-    }
-
-    public static void SetPassword(char[] pss0) {
-        ContentValues values = new ContentValues();
-        values.put(PASSWORD, Arrays.toString(pss0));
-        database2.update(TASKS_TABLE2, values, null, null);
     }
 }

@@ -2,7 +2,6 @@ package com.mxmbro.sesame.helper;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 
 public class SesameSQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHelper {
 

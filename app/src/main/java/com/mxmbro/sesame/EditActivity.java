@@ -18,11 +18,9 @@ import com.mxmbro.sesame.tasks.Task;
 import java.util.Calendar;
 import java.util.Date;
 
-public class EditActivity extends TaskManagerActivity implements View.OnClickListener {
+public class EditActivity extends TaskManagerActivity {
 
-    private Button btnDatePicker;
-    private EditText txtDate;
-
+    private EditText btnDatePicker;
     private EditText taskWhatEditText;
     private EditText taskWhereEditText;
     private boolean changesPending;
@@ -35,42 +33,10 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add);
         setUpViews();
-
-        btnDatePicker= findViewById(R.id.btn_date);
-        txtDate= findViewById(R.id.in_date);
-
-        btnDatePicker.setOnClickListener(this);
         TaskManagerApplication app = (TaskManagerApplication) getApplication();
         TaskListAdapter adapter = new TaskListAdapter(this, app.getCurrentTasks());
         CT = adapter.CompletedTasks();
 
-    }
-
-    public void onClick(View v) {
-
-        if (v == btnDatePicker) {
-
-            final Calendar c = Calendar.getInstance();
-            int mYear = c.get(Calendar.YEAR);
-            int mMonth = c.get(Calendar.MONTH);
-            int mDay = c.get(Calendar.DAY_OF_MONTH);
-
-            DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                    new DatePickerDialog.OnDateSetListener() {
-
-                        @SuppressLint("SetTextI18n")
-                        @Override
-                        public void onDateSet(DatePicker view, int year,
-                                              int monthOfYear, int dayOfMonth) {
-                            txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
-                            c.set(year,monthOfYear,dayOfMonth,0,0,0);
-                            c.set(Calendar.MILLISECOND,0);
-                            System.out.println(c.getTimeInMillis());
-                            taskDate = c.getTime();
-                        }
-                    }, mYear, mMonth, mDay);
-            datePickerDialog.show();
-        }
     }
 
     @Override
@@ -88,6 +54,28 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
         }
         finish();
 
+    }
+
+    private void datePicker() {
+        final Calendar calendar = Calendar.getInstance();
+        int mYear = calendar.get(Calendar.YEAR);
+        int mMonth = calendar.get(Calendar.MONTH);
+        int mDay = calendar.get(Calendar.DAY_OF_MONTH);
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this,
+                new DatePickerDialog.OnDateSetListener() {
+
+                    @SuppressLint("SetTextI18n")
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        btnDatePicker.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        calendar.set(year,monthOfYear,dayOfMonth,0,0,0);
+                        calendar.set(Calendar.MILLISECOND,0);
+                        System.out.println(calendar.getTimeInMillis());
+                        taskDate = calendar.getTime();
+                    }
+                }, mYear, mMonth, mDay);
+        datePickerDialog.show();
     }
 
     private void cancel() {
@@ -121,7 +109,13 @@ public class EditActivity extends TaskManagerActivity implements View.OnClickLis
         taskWhereEditText = findViewById(R.id.Gdzie_Text);
         Button editButton = findViewById(R.id.add_b);
         Button cancelButton = findViewById(R.id.cancel);
-
+        btnDatePicker = findViewById(R.id.btn_date);
+        btnDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                datePicker();
+            }
+        });
         editButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 editTask();
