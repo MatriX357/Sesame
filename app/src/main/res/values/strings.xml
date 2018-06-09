@@ -1,13 +1,12 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <string name="app_name">Sesame</string>
 
     <!-- Strings related to login -->
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email" tools:keep="@string/error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password" tools:keep="@string/error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password" tools:keep="@string/error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required" tools:keep="@string/error_field_required">This field is required</string>
-    <string name="permission_rationale" tools:keep="@string/permission_rationale">"Contacts permissions are needed for providing email
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
     <string name="title_activity_settings">Settings</string>
@@ -78,7 +77,7 @@
     <string name="sesame">Sesame</string>
     <string name="add_task">Dodaj zadanie</string>
     <string name="edit_task">Edytuj Zadanie</string>
-    <string name="delete_task">Usuń Zadanie</string>
+    <string name="delete_finished">Usuń Wykonane Zadania</string>
     <string name="views">Tryby wyświetlania</string>
     <string name="for_Today">Na Dzisiaj</string>
     <string name="for_Week">Na ten tydzień</string>
@@ -88,19 +87,16 @@
     <string name="All">Wszystkie</string>
     <string name="pref_header_change_password">Zmień hasło</string>
     <string name="pref_header_set_password">Ustawienia hasła</string>
-    <string name="todo">TODO</string>
     <string name="others">inne</string>
     <string name="date">Data</string>
     <string name="where">Gdzie?</string>
     <string name="what">Co?</string>
     <string name="confirm">Zatwierdź</string>
-    <string name="set_date" tools:keep="@string/set_date">Ustaw Date</string>
-    <string name="Welcome">TODO</string>
-    <string name="Sesamelogo">TODO</string>
+    <string name="set_date">Ustaw Date</string>
+    <string name="sesame_logo">TODO</string>
     <string name="haslo">Hasło</string>
-    <string name="login">Zaloguj się</string>
-    <string name="unsaved_changes_title">Unsaved Changes</string>
-    <string name="unsaved_changes_message">Would you like to add this task?</string>
+    <string name="unsaved_changes_title">Niezapisane zmiany</string>
+    <string name="unsaved_changes_message">Chciałbyś dodać te zadanie?</string>
     <string name="discard">Odrzuć zmiany</string>
     <string name="no_tasks">Brak zadań</string>
     <string name="rsrc">%s = %d</string>
@@ -110,10 +106,9 @@
     <string name="not_finished">Nie zrobione</string>
     <string name="cancel">Anuluj</string>
     <string name="nazwa_uzytkownika">Nazwa użytkownika</string>
-    <string name="zarejestruj_sie">Zarejestruj się</string>
-    <string name="zaloguj_sie">Zaloguj się</string>
     <string name="powtorz_haslo">Powtórz hasło</string>
     <string name="email">E-mail</string>
     <string name="numer_telefonu">Numer telefonu</string>
+    <string name="todo">TODO</string>
 
 </resources>

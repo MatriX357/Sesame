@@ -2,22 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/Add"
-            android:icon="@drawable/ic_action_add"
-            android:title="@string/add_task" />
-
-        <item
-            android:id="@+id/Edit"
-            android:icon="@drawable/ic_action_edit"
-            android:title="@string/edit_task" />
-        <item
-            android:id="@+id/Delete"
-            android:icon="@drawable/ic_action_delete"
-            android:title="@string/delete_task" />
-    </group>
     <item android:title="@string/views">
         <menu>
             <item
@@ -38,17 +22,18 @@
                 android:title="@string/All" />
         </menu>
     </item>
-    <item android:title="@string/others">
-        <menu>
-            <item
-                android:id="@+id/Settings"
-                android:icon="@drawable/ic_action_settings"
-                android:title="@string/settings" />
-            <item
-                android:id="@+id/Log_Out"
-                android:icon="@drawable/ic_action_power_settings_new"
-                android:title="@string/logout" />
-        </menu>
-    </item>
-
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/DeleteFinished"
+            android:icon="@drawable/ic_action_delete"
+            android:title="@string/delete_finished" />
+        <item
+            android:id="@+id/Settings"
+            android:icon="@drawable/ic_action_settings"
+            android:title="@string/settings" />
+        <item
+            android:id="@+id/Log_Out"
+            android:icon="@drawable/ic_action_power_settings_new"
+            android:title="@string/logout" />
+    </group>
 </menu>

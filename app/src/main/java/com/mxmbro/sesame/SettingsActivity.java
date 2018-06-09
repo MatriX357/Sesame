@@ -164,7 +164,6 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
                 || ChangePasswordFragment.class.getName().equals(fragmentName);
     }
 
-
     /**
      * This fragment shows general preferences only. It is used when the
      * activity is showing a two-pane settings UI.
@@ -266,7 +265,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
             addPreferencesFromResource(R.xml.pref_set_password);
             setHasOptionsMenu(true);
             Preference preference = findPreference("newpassword");
-            TaskManagerApplication.password = PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), "");
+            SesameApplication.password = PreferenceManager.getDefaultSharedPreferences(preference.getContext()).getString(preference.getKey(), "");
         }
 
 

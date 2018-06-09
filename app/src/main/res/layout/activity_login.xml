@@ -22,16 +22,16 @@
         android:textSize="25sp" />
 
     <ImageView
-        android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="241dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="18dp"
-        app:srcCompat="@mipmap/ic_logo_sesame1k" />
+        app:srcCompat="@mipmap/ic_logo_sesame1k"
+        android:contentDescription="@string/todo" />
 
     <EditText
-        android:id="@+id/haslo"
+        android:id="@+id/password"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_below="@+id/nazwa_uzytkownika"
@@ -46,7 +46,6 @@
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/Zarejestruj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -58,7 +57,6 @@
         android:textSize="25sp" />
 
     <TextView
-        android:id="@+id/zaloguj"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

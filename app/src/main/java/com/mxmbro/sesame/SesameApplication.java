@@ -23,7 +23,7 @@ import android.database.sqlite.SQLiteDatabase;
 import  com.mxmbro.sesame.tasks.Task;
 import com.mxmbro.sesame.helper.SesameSQLiteOpenHelper;
 
-public class TaskManagerApplication extends Application {
+public class SesameApplication extends Application {
 
     public static String password;
     private ArrayList<Task> currentTasks;

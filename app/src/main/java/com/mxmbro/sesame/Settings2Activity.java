@@ -7,14 +7,14 @@ import android.view.View;
 
 public class Settings2Activity extends AppCompatActivity {
 
-    TaskManagerApplication app;
+    SesameApplication app;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        app = (TaskManagerApplication) getApplication();
+        app = (SesameApplication) getApplication();
     }
 
     public void editProfile(View view) {

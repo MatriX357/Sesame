@@ -7,13 +7,13 @@ import android.view.View;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    private TaskManagerApplication app;
+    private SesameApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        app = (TaskManagerApplication) getApplication();
+        app = (SesameApplication) getApplication();
     }
 
     public void regIn(View view) {

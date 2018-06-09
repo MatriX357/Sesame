@@ -8,8 +8,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="3dp"
-        android:background="#800000"
         android:baselineAligned="false"
+        android:background="@color/colorPrimary"
         android:padding="10dp">
 
         <LinearLayout
@@ -17,10 +17,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
+            android:background="@android:color/transparent"
             android:padding="5dp">
 
             <TextView
                 android:id="@+id/what"
+                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -31,6 +33,7 @@
 
             <TextView
                 android:id="@+id/finished"
+                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -43,6 +46,7 @@
 
         <LinearLayout
             android:layout_width="0dp"
+            android:background="@android:color/transparent"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="vertical"
@@ -50,6 +54,7 @@
 
             <TextView
                 android:id="@+id/where"
+                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
@@ -60,6 +65,7 @@
 
             <TextView
                 android:id="@+id/date"
+                android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"

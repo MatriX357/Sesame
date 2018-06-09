@@ -7,7 +7,6 @@
 
 
     <EditText
-        android:id="@+id/nazwa_uzytkownika_rejestracja"
         android:layout_width="310dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -21,7 +20,6 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/haslo_rejestracja"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -36,7 +34,6 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/powtorz_haslo"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -51,7 +48,6 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/email"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -66,7 +62,6 @@
         android:textSize="25sp" />
 
     <EditText
-        android:id="@+id/phone"
         android:layout_width="309dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -82,7 +77,6 @@
         android:textSize="25sp" />
 
     <Button
-        android:id="@+id/button"
         android:layout_width="176dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

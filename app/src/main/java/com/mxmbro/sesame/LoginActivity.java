@@ -10,14 +10,14 @@ import java.util.Arrays;
 
 
 public class LoginActivity extends AppCompatActivity  {
-    //private final EditText taskPassword = findViewById(R.id.password);
-    private TaskManagerApplication app;
+    private final EditText taskPassword = findViewById(R.id.password);
+    private SesameApplication app;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        app = (TaskManagerApplication) getApplication();
+        app = (SesameApplication) getApplication();
     }
 
 
