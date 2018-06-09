@@ -29,7 +29,7 @@ public class WelcomeActivity extends AppCompatActivity {
                 } finally {
                     try {
                         if (Arrays.equals(app.getPassword(), pss)) {
-                            Intent intent = new Intent(getApplicationContext(), SesameActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                             startActivity(intent);
                         }
                         else {

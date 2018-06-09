@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:id="@+id/nazwa_uzytkownika_rejestracja"
+        android:layout_width="310dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:hint="@string/nazwa_uzytkownika"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/haslo_rejestracja"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="142dp"
+        android:hint="@string/haslo"
+        android:password="true"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/powtorz_haslo"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="227dp"
+        android:hint="@string/powtorz_haslo"
+        android:password="true"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="196dp"
+        android:hint="@string/email"
+        android:textAlignment="center"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="309dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="112dp"
+        android:autoText="false"
+        android:hint="@string/numer_telefonu"
+        android:phoneNumber="true"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:textColorHint="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        tools:ignore="LabelFor" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="176dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/button2"
+        android:layout_marginStart="13dp"
+        android:background="@color/cardview_dark_background"
+        android:onClick="regIn"
+        android:text="Zarejestruj się"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="161dp"
+        android:layout_height="65dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="14dp"
+        android:layout_marginEnd="13dp"
+        android:background="@color/cardview_dark_background"
+        android:text="Anuluj"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+</RelativeLayout>

@@ -10,7 +10,7 @@ import java.util.Arrays;
 
 
 public class LoginActivity extends AppCompatActivity  {
-    private final EditText taskPassword = findViewById(R.id.password);
+    //private final EditText taskPassword = findViewById(R.id.password);
     private TaskManagerApplication app;
 
     @Override
@@ -22,12 +22,19 @@ public class LoginActivity extends AppCompatActivity  {
 
 
     public void logIn(View view) {
-        char[] pssw = taskPassword.getText().toString().toCharArray();
-        char[] pss0 = app.getPassword();
-        if (Arrays.equals(pssw, pss0)) {
-            Intent intent = new Intent(getApplicationContext(), SesameActivity.class);
-            startActivity(intent);
-        }
+        //char[] pssw = taskPassword.getText().toString().toCharArray();
+        //char[] pss0 = app.getPassword();
+        //if (Arrays.equals(pssw, pss0)) {
+
+        //}
+
+        Intent intent = new Intent(getApplicationContext(), SesameActivity.class);
+        startActivity(intent);
+    }
+
+    public void regIn(View view) {
+        Intent intent = new Intent(getApplicationContext(), RegistrationActivity.class);
+        startActivity(intent);
     }
 }
 

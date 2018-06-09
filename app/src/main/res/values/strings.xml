@@ -109,5 +109,11 @@
     <string name="finished">Zrobione</string>
     <string name="not_finished">Nie zrobione</string>
     <string name="cancel">Anuluj</string>
+    <string name="nazwa_uzytkownika">Nazwa użytkownika</string>
+    <string name="zarejestruj_sie">Zarejestruj się</string>
+    <string name="zaloguj_sie">Zaloguj się</string>
+    <string name="powtorz_haslo">Powtórz hasło</string>
+    <string name="email">E-mail</string>
+    <string name="numer_telefonu">Numer telefonu</string>
 
 </resources>
