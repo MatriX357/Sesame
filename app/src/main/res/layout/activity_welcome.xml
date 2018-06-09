@@ -12,17 +12,10 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:background="@android:color/holo_red_dark"
+        android:background="#000000"
         android:contentDescription="@string/Sesamelogo"
-        app:srcCompat="@mipmap/ic_sesamelogo4" />
+        app:srcCompat="@mipmap/ic_sesame_ep" />
 
-    <ImageView
-        android:layout_width="190dp"
-        android:layout_height="80dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="14dp"
-        android:contentDescription="@string/Welcome"
-        app:srcCompat="@drawable/welcome" />
+
 
 </RelativeLayout>
