@@ -17,7 +17,12 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
     public void regIn(View view) {
-        Intent intent = new Intent(getApplicationContext(), SesameActivity.class);
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+        startActivity(intent);
+    }
+
+    public void cancel(View view){
+        Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
         startActivity(intent);
     }
 }

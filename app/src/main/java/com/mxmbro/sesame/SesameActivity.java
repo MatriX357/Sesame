@@ -131,7 +131,7 @@ public class SesameActivity extends ListActivity
                 break;
             }
             case R.id.Settings: {
-                Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
                 finish();
                 startActivity(intent);
 

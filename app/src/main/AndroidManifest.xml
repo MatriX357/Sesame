@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
         <activity
-            android:name=".SettingsActivity"
+            android:name=".Settings2Activity"
             android:label="@string/title_activity_settings" />
         <activity
             android:name=".SesameActivity"
@@ -41,6 +41,12 @@
         <activity android:name=".SettingsActivity$Preferences" />
         <activity android:name=".TaskManagerActivity" />
         <activity android:name=".LoginActivity" />
+        <activity android:name=".EditProfilActivity" />
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".ProfilActivity" />
+
+
+
 
     </application>
 

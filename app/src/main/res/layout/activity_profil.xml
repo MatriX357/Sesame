@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/nazwa"
+        android:layout_width="113dp"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="229dp"
+        android:layout_marginStart="23dp"
+        android:text="Nazwa: "
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/e-mail_profil"
+        android:layout_width="110dp"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/nazwa"
+        android:layout_marginBottom="158dp"
+        android:text="E-mail:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/phone_profil"
+        android:layout_width="106dp"
+        android:layout_height="44dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/nazwa"
+        android:layout_marginBottom="89dp"
+        android:text="Phone:"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/profil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="PROFIL"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="156dp"
+        android:layout_height="162dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="86dp"
+        app:srcCompat="@drawable/profil" />
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/nazwa"
+        android:layout_toEndOf="@+id/nazwa"
+        android:ems="10"
+        android:inputType="text|textPersonName"
+        android:text="Nazwa użytkownika"
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="248dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/e-mail_profil"
+        android:layout_alignParentEnd="true"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        android:text="Email"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="246dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/phone_profil"
+        android:layout_toEndOf="@+id/nazwa"
+        android:ems="10"
+        android:inputType="phone"
+        android:text="Numer telefonu"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        app:srcCompat="@drawable/ic_arrow_back" />
+
+
+</RelativeLayout>

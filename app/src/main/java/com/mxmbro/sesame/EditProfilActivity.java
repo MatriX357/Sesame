@@ -1,23 +1,20 @@
 package com.mxmbro.sesame;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-public class ChangePasswordActivity extends AppCompatActivity {
+public class EditProfilActivity extends AppCompatActivity {
+
+    TaskManagerApplication app;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
-
-        //EditTextPreference password = (EditTextPreference)getText(R.id.new_password);
-    }
-
-    public void changePassword(View view) {
-        Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
-        startActivity(intent);
+        setContentView(R.layout.activity_edit_profil);
+        app = (TaskManagerApplication) getApplication();
     }
 
     public void back(View view) {
@@ -29,6 +26,5 @@ public class ChangePasswordActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
         startActivity(intent);
     }
-
 
 }

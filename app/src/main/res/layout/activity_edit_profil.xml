@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ChangePasswordActivity">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/editText2"
@@ -15,8 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginEnd="28dp"
         android:layout_marginTop="174dp"
-        android:hint="Stare hasło"
-        android:inputType="textPassword"
+        android:hint="@string/nazwa_uzytkownika"
+        android:inputType="text|textPersonName"
         android:password="true"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -32,8 +31,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="174dp"
         android:layout_marginEnd="28dp"
-        android:hint="Powtórz hasło"
-        android:inputType="textPassword"
+        android:hint="@string/numer_telefonu"
+        android:inputType="phone"
         android:password="true"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
@@ -48,14 +47,14 @@
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="28dp"
-        android:hint="Nowe hasło"
-        android:inputType="textPassword"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
         android:password="true"
         android:textAlignment="center"
         android:textColor="@color/colorPrimaryDark"
         android:textColorHint="@color/colorPrimaryDark"
-        android:textSize="25sp"
 
+        android:textSize="25sp"
         tools:ignore="LabelFor" />
 
     <Button
@@ -77,7 +76,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="ZMIANA HASŁA"
+        android:text="EDYCJA PROFILU"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp" />
 
