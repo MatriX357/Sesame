@@ -77,7 +77,7 @@
     <string name="sesame">Sesame</string>
     <string name="add_task">Dodaj zadanie</string>
     <string name="edit_task">Edytuj Zadanie</string>
-    <string name="delete_finished">Usuń Wykonane Zadania</string>
+    <string name="delete_finished">Usuń wykonane zadania</string>
     <string name="views">Tryby wyświetlania</string>
     <string name="for_Today">Na Dzisiaj</string>
     <string name="for_Week">Na ten tydzień</string>
@@ -110,5 +110,19 @@
     <string name="email">E-mail</string>
     <string name="numer_telefonu">Numer telefonu</string>
     <string name="todo">TODO</string>
+    <string name="profil">Profil</string>
+    <string name="nazwa">Nazwa:</string>
+    <string name="email_p">E-mail:</string>
+    <string name="telefon">Telefon:</string>
+    <string name="PROFIL">PROFIL</string>
+    <string name="ZAREJESTRUJ">ZAREJESTRUJ SIĘ</string>
+    <string name="ZALOGUJ">ZALOGUJ SIĘ</string>
+    <string name="nowe_haslo">Nowe hasło</string>
+    <string name="zatwierdz">Zatwierdź</string>
+    <string name="ZMIANA_HASLA">ZMIANA HASŁA</string>
+    <string name="ZMIEŃ_HASLO">ZMIEŃ HASŁO</string>
+    <string name="ZEDYTUJ_PROFIL">ZEDYTUJ PROFIL</string>
+    <string name="USTAWIENIA">USTAWIENIA</string>
+    <string name="zarejestruj_sie">Zarejestruj się</string>
 
 </resources>

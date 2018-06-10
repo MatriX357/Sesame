@@ -21,7 +21,8 @@
         android:hint="@string/date"
         android:inputType="date"
         android:shadowColor="#ff8000"
-        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
         android:textColorHint="#ff8000" />
 
@@ -39,7 +40,8 @@
         android:hint="@string/where"
         android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
-        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
         android:textColorHint="#ff8000" />
 
@@ -57,7 +59,8 @@
         android:hint="@string/what"
         android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
-        android:textColor="#ffffff"
+        android:textAlignment="center"
+        android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
         android:textColorHint="#ff8000" />
 

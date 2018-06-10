@@ -89,6 +89,12 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
                 removeCompletedTasks();
                 break;
             }
+            case R.id.Profil: {
+                Intent intent = new Intent(getApplicationContext(), ProfilActivity.class);
+                finish();
+                startActivity(intent);
+                break;
+            }
 
             case R.id.Today: {
                 app.loadTasks("today");

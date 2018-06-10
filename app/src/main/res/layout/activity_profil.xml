@@ -14,7 +14,7 @@
         android:layout_alignParentStart="true"
         android:layout_marginBottom="229dp"
         android:layout_marginStart="23dp"
-        android:text="Nazwa: "
+        android:text="@string/nazwa"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
@@ -25,7 +25,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/nazwa"
         android:layout_marginBottom="158dp"
-        android:text="E-mail:"
+        android:text="@string/email_p"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
@@ -36,7 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/nazwa"
         android:layout_marginBottom="89dp"
-        android:text="Phone:"
+        android:text="@string/telefon"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
@@ -47,7 +47,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:text="PROFIL"
+        android:text="@string/PROFIL"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp" />
 
@@ -68,7 +68,7 @@
         android:layout_toEndOf="@+id/nazwa"
         android:ems="10"
         android:inputType="text|textPersonName"
-        android:text="Nazwa użytkownika"
+        android:text="@string/nazwa_uzytkownika"
         android:textAlignment="viewStart"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
@@ -81,7 +81,7 @@
         android:layout_alignParentEnd="true"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="Email"
+        android:text="@string/email"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
@@ -93,7 +93,7 @@
         android:layout_toEndOf="@+id/nazwa"
         android:ems="10"
         android:inputType="phone"
-        android:text="Numer telefonu"
+        android:text="@string/numer_telefonu"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
@@ -103,7 +103,7 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/ic_arrow_back" />
+        app:srcCompat="@drawable/ic_arrow_back_red" />
 
 
 </RelativeLayout>
