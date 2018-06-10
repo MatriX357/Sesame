@@ -21,14 +21,14 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/what"
+                android:id="@+id/tytul"
                 android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center|start"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="#ff8000"
                 android:textStyle="bold" />
 
             <TextView
@@ -39,7 +39,7 @@
                 android:layout_weight="1"
                 android:gravity="center|start"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="#ff8000"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -53,15 +53,17 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/where"
+                android:id="@+id/Lokalizacja"
                 android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center|end"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="#ff8000"
                 android:textStyle="bold" />
+
+
 
             <TextView
                 android:id="@+id/date"
@@ -71,7 +73,20 @@
                 android:layout_weight="1"
                 android:gravity="center|end"
                 android:text=""
-                android:textColor="#ffffff"
+                android:textColor="#ff8000"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:id="@+id/notatki"
+                android:background="@android:color/transparent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|end"
+                android:text=""
+                android:textColor="#ff8000"
                 android:textStyle="bold" />
 
         </LinearLayout>
