@@ -11,9 +11,11 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
@@ -23,11 +25,10 @@ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 
-import com.mxmbro.sesame.user.User;
 import com.mxmbro.sesame.adapters.TaskListAdapter;
 import com.mxmbro.sesame.tasks.Task;
+import com.mxmbro.sesame.user.User;
 
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
@@ -49,18 +50,10 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
     private boolean taskChanged;
     private boolean taskLocationChanged;
     private boolean taskNameChanged;
-    private EditText userNameEditText;
-    private EditText passwordEditText;
-    private EditText registerNameEditText;
-    private EditText registerPasswordEditText;
-    private EditText repeatedPasswordEditText;
-    private EditText registerEmailEditText;
-    private EditText registerPhoneEditText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         startActivity(new Intent(getApplicationContext(), WelcomeActivity.class));
-        loginDialog();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sesame);
         setUpViews();
@@ -118,7 +111,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
                 break;
             }
             case R.id.Log_Out: {
-                Intent intent = new Intent(getApplicationContext(), LoginDialog.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 finish();
                 startActivity(intent);
                 break;
@@ -138,6 +131,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
     @Override
     protected void onResume() {
         super.onResume();
+        loadTasks();
         adapter.forceReload();
     }
 
@@ -238,16 +232,6 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
         app.loadTasks();
         adapter = new TaskListAdapter(this, app.getCurrentTasks());
         setListAdapter(adapter);
-    }
-
-    private void loginDialog() {
-        dialog = new LoginDialog(this);
-        dialog.show();
-    }
-
-    private void registerDialog() {
-        dialog = new RegistrationDialog(this);
-        dialog.show();
     }
 
     private void removeCompletedTasks() {
@@ -384,95 +368,6 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
             });
         }
     }
-
-    class LoginDialog extends Dialog  {
-
-        LoginDialog(@NonNull Context context) {
-            super(context);
-        }
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.dialog_login);
-            setUpViews();
-        }
-
-        private void setUpViews(){
-            userNameEditText = findViewById(R.id.login_name);
-            passwordEditText = findViewById(R.id.login_password);
-            Button loginButton = findViewById(R.id.login_button);
-            Button registerButton = findViewById(R.id.register_button);
-
-            loginButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    SesameApplication.user_name = userNameEditText.getText().toString();
-                    app.loadUser();
-                    app.downloadData();
-                    loadTasks();
-                    dialog.dismiss();
-                }
-            });
-
-            registerButton.setOnClickListener(new View.OnClickListener() {
-
-                @Override
-                public void onClick(View v) {
-                    registerDialog();
-                }
-            });
-
-        }
-    }
-
-    class RegistrationDialog extends Dialog {
-
-        RegistrationDialog(@NonNull Context context) {
-            super(context);
-        }
-
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.dialog_registration);
-            setUpViews();
-        }
-
-        private void setUpViews(){
-            registerNameEditText = findViewById(R.id.register_name);
-            registerPasswordEditText = findViewById(R.id.register_password);
-            repeatedPasswordEditText = findViewById(R.id.repeated_password);
-            registerEmailEditText = findViewById(R.id.register_email);
-            registerPhoneEditText = findViewById(R.id.register_phone);
-            final Button registerButton = findViewById(R.id.register);
-            Button cancelButton = findViewById(R.id.register_cancel);
-
-            registerButton.setOnClickListener(new View.OnClickListener(){
-
-                @Override
-                public void onClick(View v) {
-                    String name = registerNameEditText.getText().toString();
-                    String password = registerPasswordEditText.getText().toString();
-                    String email = registerEmailEditText.getText().toString();
-                    String phone = registerPhoneEditText.getText().toString();
-                    User u = new User(name, password, email, phone);
-                    u.setID(UUID.randomUUID().toString());
-                    SesameApplication.addUser(u);
-                    dialog.dismiss();
-                }
-            });
-
-            cancelButton.setOnClickListener(new View.OnClickListener(){
-
-                @Override
-                public void onClick(View v) {
-
-                }
-            });
-
-
-        }
-    }
 }
+
+

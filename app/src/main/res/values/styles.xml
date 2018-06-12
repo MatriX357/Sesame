@@ -1,11 +1,12 @@
 <resources xmlns:android="http://schemas.android.com/tools">
 
     <style name="AppTheme" parent="Theme.AppCompat.NoActionBar">
-        <item name="android:textColor">@color/White</item>
+        <item name="android:textColor">@color/More_Dark_Red</item>
         <item name="android:background">@color/Black</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimaryDark">@color/Maroon</item>
+        <item name="colorPrimary">@color/More_Dark_Red</item>
+        <item name="colorAccent">@color/Orange</item>
+        <item name="android:textColorHint">@color/Maroon</item>
     </style>
 
     <style name="Theme" />

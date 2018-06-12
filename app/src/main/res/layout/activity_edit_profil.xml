@@ -18,8 +18,8 @@
         android:inputType="text|textPersonName"
         android:password="true"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
         android:textSize="25sp"
         tools:ignore="LabelFor" />
 
@@ -35,8 +35,8 @@
         android:inputType="phone"
         android:password="true"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
         android:textSize="25sp"
         tools:ignore="LabelFor" />
 
@@ -51,8 +51,8 @@
         android:inputType="textEmailAddress"
         android:password="true"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
 
         android:textSize="25sp"
         tools:ignore="LabelFor" />
@@ -66,7 +66,7 @@
         android:background="@color/cardview_dark_background"
         android:onClick="changePassword"
         android:text="Zatwierdź"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="20sp" />
 
     <TextView
@@ -77,7 +77,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:text="EDYCJA PROFILU"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="30sp" />
 
     <Button
@@ -90,7 +90,7 @@
         android:layout_marginEnd="23dp"
         android:background="@color/cardview_dark_background"
         android:text="Anuluj"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="20sp" />
 
     <ImageView

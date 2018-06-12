@@ -4,9 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="#800000"
     android:orientation="vertical"
-    android:theme="@android:style/Theme.Holo.Dialog"
+    android:background="@color/Maroon"
     tools:showIn="navigation_view">
 
     <EditText
@@ -24,7 +23,6 @@
         android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
         android:textAlignment="center"
-        android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
         android:textColorHint="#ff8000" />
 
@@ -132,7 +130,8 @@
         android:layout_marginEnd="20dp"
         android:layout_below="@+id/add_notes"
         android:background="#ff0000"
-        android:text="@string/confirm" />
+        android:text="@string/confirm"
+        android:textColor="@color/White"/>
 
     <Button
         android:id="@+id/add_cancel"
@@ -143,6 +142,7 @@
         android:layout_marginBottom="20dp"
         android:layout_marginStart="20dp"
         android:background="#ff0000"
-        android:text="@string/cancel" />
+        android:text="@string/cancel"
+        android:textColor="@color/White"/>
 
 </RelativeLayout>

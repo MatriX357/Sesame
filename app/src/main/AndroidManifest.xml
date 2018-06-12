@@ -35,6 +35,8 @@
         <activity android:name=".SettingsActivity" />
         <activity android:name=".EditProfilActivity" />
         <activity android:name=".ProfilActivity" />
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".RegistrationActivity" />
 
     </application>
 

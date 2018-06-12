@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="3dp"
         android:baselineAligned="false"
-        android:background="@color/colorPrimary"
+        android:background="@color/Maroon"
         android:padding="10dp">
 
         <LinearLayout
@@ -62,8 +62,6 @@
                 android:text=""
                 android:textColor="#ff8000"
                 android:textStyle="bold" />
-
-
 
             <TextView
                 android:id="@+id/tli_date"

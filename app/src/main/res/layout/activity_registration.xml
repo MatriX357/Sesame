@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:background="#000000"
-    android:theme="@android:style/Theme.Holo.Dialog">
+    android:layout_height="wrap_content">
 
 
     <EditText
@@ -19,8 +17,8 @@
         android:hint="@string/user_name"
         android:inputType="textPersonName"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <EditText
@@ -36,8 +34,8 @@
         android:hint="@string/password"
         android:inputType="textPassword"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <EditText
@@ -53,8 +51,8 @@
         android:hint="@string/repeat_password"
         android:inputType="textPassword"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <EditText
@@ -70,8 +68,8 @@
         android:hint="@string/email"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <EditText
@@ -87,8 +85,8 @@
         android:hint="@string/numer_telefonu"
         android:inputType="phone"
         android:textAlignment="center"
-        android:textColor="@color/colorPrimaryDark"
-        android:textColorHint="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
+        android:textColorHint="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <Button
@@ -102,7 +100,7 @@
         android:layout_below="@+id/register_phone"
         android:background="@color/Black"
         android:text="@string/register"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="20sp" />
 
     <Button
@@ -112,10 +110,10 @@
         android:layout_alignParentStart="true"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
         android:layout_below="@+id/register_phone"
         android:background="@color/Black"
         android:text="@string/cancel"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="20sp" />
 </RelativeLayout>

@@ -15,7 +15,7 @@
         android:layout_marginBottom="229dp"
         android:layout_marginStart="23dp"
         android:text="@string/name"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <TextView
@@ -26,7 +26,7 @@
         android:layout_alignStart="@+id/nazwa"
         android:layout_marginBottom="158dp"
         android:text="@string/email"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <TextView
@@ -37,7 +37,7 @@
         android:layout_alignStart="@+id/nazwa"
         android:layout_marginBottom="93dp"
         android:text="@string/phone"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <TextView
@@ -48,7 +48,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
         android:text="@string/profile"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="30sp" />
 
     <ImageView
@@ -58,6 +58,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="86dp"
+        android:contentDescription="@string/todo"
         app:srcCompat="@drawable/profil" />
 
     <EditText
@@ -68,9 +69,9 @@
         android:layout_toEndOf="@+id/nazwa"
         android:ems="10"
         android:inputType="text|textPersonName"
-        android:text="@string/user_name"
+        android:hint="@string/user_name"
         android:textAlignment="viewStart"
-        android:textColor="@color/colorPrimaryDark"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <EditText
@@ -81,8 +82,8 @@
         android:layout_alignParentEnd="true"
         android:ems="10"
         android:inputType="textEmailAddress"
-        android:text="@string/email"
-        android:textColor="@color/colorPrimaryDark"
+        android:hint="@string/email"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <EditText
@@ -93,8 +94,8 @@
         android:layout_toEndOf="@+id/nazwa"
         android:ems="10"
         android:inputType="phone"
-        android:text="@string/numer_telefonu"
-        android:textColor="@color/colorPrimaryDark"
+        android:hint="@string/numer_telefonu"
+        android:textColor="@color/More_Dark_Red"
         android:textSize="25sp" />
 
     <ImageView
@@ -103,6 +104,7 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:contentDescription="@string/todo"
         app:srcCompat="@drawable/ic_arrow_back_red" />
 
 
