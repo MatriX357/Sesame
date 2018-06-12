@@ -453,18 +453,14 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
 
                 @Override
                 public void onClick(View v) {
-                    try {
-                        String name = registerNameEditText.getText().toString();
-                        String password = registerPasswordEditText.getText().toString();
-                        String email = registerEmailEditText.getText().toString();
-                        String phone = registerPhoneEditText.getText().toString();
-                        User u = new User(name, password, email, phone);
-                        u.setID(UUID.randomUUID().toString());
-                        SesameApplication.addUser(u);
-                        dialog.dismiss();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
+                    String name = registerNameEditText.getText().toString();
+                    String password = registerPasswordEditText.getText().toString();
+                    String email = registerEmailEditText.getText().toString();
+                    String phone = registerPhoneEditText.getText().toString();
+                    User u = new User(name, password, email, phone);
+                    u.setID(UUID.randomUUID().toString());
+                    SesameApplication.addUser(u);
+                    dialog.dismiss();
                 }
             });
 
