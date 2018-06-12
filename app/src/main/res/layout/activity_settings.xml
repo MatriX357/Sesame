@@ -12,7 +12,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="36dp"
-        android:text="@string/USTAWIENIA"
+        android:text="USTAWIENIA"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="30sp" />
 
@@ -23,8 +23,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="162dp"
-        android:text="@string/ZEDYTUJ_PROFIL"
         android:onClick="editProfile"
+        android:text="Z EDYTUJ PROFIL "
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
 
@@ -35,7 +35,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="84dp"
-        android:text="@string/ZMIEŃ_HASLO"
+        android:text="ZMIEŃ HASŁO"
         android:onClick="changePassword"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="25sp" />
@@ -55,6 +55,6 @@
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@drawable/ic_arrow_back_red"
+        app:srcCompat="@drawable/ic_arrow_back"
         android:onClick="back"/>
 </RelativeLayout>

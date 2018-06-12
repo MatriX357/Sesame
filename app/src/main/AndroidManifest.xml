@@ -7,6 +7,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application android:name=".SesameApplication"
         android:allowBackup="false"
@@ -20,10 +21,6 @@
         <activity
             android:name=".WelcomeActivity">
         </activity>
-
-        <activity
-            android:name=".Settings2Activity"
-            android:label="@string/title_activity_settings" />
         <activity
             android:name=".SesameActivity"
             android:label="@string/title_activity_main2">
@@ -35,11 +32,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".ChangePasswordActivity" />
-        <activity android:name=".SettingsActivity$Preferences" />
-        <activity android:name=".LoginActivity" />
+        <activity android:name=".SettingsActivity" />
         <activity android:name=".EditProfilActivity" />
         <activity android:name=".ProfilActivity" />
-        <activity android:name=".RegistrationActivity" />
 
     </application>
 

@@ -21,7 +21,7 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/tytul"
+                android:id="@+id/tli_title"
                 android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -32,7 +32,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/finished"
+                android:id="@+id/tli_finished"
                 android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -53,7 +53,7 @@
             android:padding="5dp">
 
             <TextView
-                android:id="@+id/Lokalizacja"
+                android:id="@+id/tli_priority"
                 android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
@@ -66,20 +66,7 @@
 
 
             <TextView
-                android:id="@+id/date"
-                android:background="@android:color/transparent"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:gravity="center|end"
-                android:text=""
-                android:textColor="#ff8000"
-                android:textStyle="bold" />
-
-
-
-            <TextView
-                android:id="@+id/notatki"
+                android:id="@+id/tli_date"
                 android:background="@android:color/transparent"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

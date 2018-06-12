@@ -8,15 +8,21 @@ public class SesameSQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHe
     private static final String DB_NAME = "tasks_db.sqllite";
     private static final int VERSION = 1;
 
-    public static final String TASKS_TABLE = "tasks";
-    public static final String TASK_ID = "id";
-    public static final String TASK_DATE = "long";
-    public static final String TASK_WHAT = "what";
-    public static final String TASK_WHERE = "wher";
-    public static final String TASK_COMPLETE = "complete";
-    public static final String TASKS_TABLE2 = "Password";
-    public static final String PASSWORD = "Password";
-
+    public static final String TASKS_TABLE = "Tasks";
+    public static final String TASK_ID = "task_id";
+    public static final String TASK_LOCATION = "location";
+    public static final String COMPLETE = "complete";
+    public static final String TASK_NAME = "name";
+    public static final String TASK = "task";
+    public static final String TASK_TIME = "time";
+    public static final String PRIORITY = "priority";
+    public static final String EXTRA_INFO = "extra_info";
+    public static final String USER_ID = "user_id";
+    public static final String USERS_TABLE = "Users";
+    public static final String USER_NAME = "name";
+    public static final String USER_EMAIL = "email";
+    public static final String USER_PASSWORD = "password";
+    public static final String USER_PHONE = "phone";
     public SesameSQLiteOpenHelper(Context context) {
         super(context, DB_NAME, null, VERSION);
     }
@@ -27,17 +33,33 @@ public class SesameSQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHe
     }
 
     private void createTable(SQLiteDatabase db) {
-        db.execSQL("create table " + TASKS_TABLE + " ( " +
-                TASK_ID + " integer primary key autoincrement not null, " +
-                TASK_DATE + " integer, " +
-                TASK_WHAT + " text, " +
-                TASK_WHERE + " text, " +
-                TASK_COMPLETE + " text " +
+        createTableUsers(db);
+        createTableTasks(db);
+    }
+
+    private void createTableUsers(SQLiteDatabase db) {
+        db.execSQL("create table " + USERS_TABLE + " ( " +
+                USER_ID + " text primary key not null, " +
+                USER_NAME + " text, " +
+                USER_EMAIL + " text, " +
+                USER_PASSWORD + " text, " +
+                USER_PHONE + " text " +
                 ");"
         );
-        db.execSQL("create table " + TASKS_TABLE2 + " ( " + PASSWORD + ");"
-        );
-        db.execSQL("insert into " + TASKS_TABLE2 + " values ( " + "'0'" + ");"
+    }
+
+    private void createTableTasks(SQLiteDatabase db) {
+        db.execSQL("create table " + TASKS_TABLE + " ( " +
+                TASK_ID + " text primary key not null, " +
+                TASK_NAME + " text, " +
+                TASK + " text, " +
+                TASK_LOCATION + " text, " +
+                TASK_TIME + " integer, " +
+                COMPLETE + " text, " +
+                PRIORITY + " text, " +
+                EXTRA_INFO + " text, " +
+                USER_ID + " text " +
+                ");"
         );
     }
 

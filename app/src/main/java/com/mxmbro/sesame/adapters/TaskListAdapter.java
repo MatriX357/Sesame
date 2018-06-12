@@ -59,9 +59,9 @@ public class TaskListAdapter extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public Long[] removeCompletedTasks() {
+    public String[] removeCompletedTasks() {
         ArrayList<Task> completedTasks = new ArrayList<>();
-        ArrayList<Long> completedIds = new ArrayList<>();
+        ArrayList<String> completedIds = new ArrayList<>();
         for (Task task : tasks) {
             if (task.isComplete()) {
                 completedTasks.add(task);
@@ -70,8 +70,9 @@ public class TaskListAdapter extends BaseAdapter {
         }
         tasks.removeAll(completedTasks);
         notifyDataSetChanged();
-        return completedIds.toArray(new Long[]{});
+        return completedIds.toArray(new String[]{});
     }
+
     public Task[] CompletedTasks() {
         ArrayList<Task> completedTasks = new ArrayList<>();
         for (Task task : tasks) {

@@ -6,7 +6,7 @@
         <item
             android:id="@+id/Profil"
             android:icon="@drawable/ic_profil"
-            android:title="@string/profil" />
+            android:title="@string/profile"/>
 
 
     </group>

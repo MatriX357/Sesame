@@ -12,22 +12,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:visibility="visible">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/sesame"
-        android:textAlignment="viewStart"
-        android:textAllCaps="false"
-        android:textSize="30sp"
-        android:textStyle="bold" />
-
-    <TextView
+    <ImageView
+        android:id="@+id/login_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
-        android:text="@string/task_manager"
-        android:textSize="18sp" />
+        android:contentDescription="@string/todo"
+        android:src="@mipmap/ic_logo_sesame1k" />
 
 </LinearLayout>

@@ -11,9 +11,9 @@ import android.widget.TextView;
 public class TaskListItem extends LinearLayout {
 
     private Task task;
-    private TextView checkbox;
-    private TextView what;
-    private TextView where;
+    private TextView complete;
+    private TextView title;
+    private TextView priority;
     private TextView date;
 
     public TaskListItem(Context context, AttributeSet attrs) {
@@ -23,26 +23,27 @@ public class TaskListItem extends LinearLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
-        checkbox = findViewById(R.id.finished);
-        what = findViewById(R.id.what);
-        where = findViewById(R.id.where);
-        date = findViewById(R.id.date);
+        complete = findViewById(R.id.tli_finished);
+        title = findViewById(R.id.tli_title);
+        priority = findViewById(R.id.tli_priority);
+        date = findViewById(R.id.tli_date);
     }
 
     public void setTask(Task task) {
         this.task = task;
         if (task.isComplete()){
-            checkbox.setText(R.string.finished);
+            complete.setText(R.string.finished);
         }else{
-            checkbox.setText(R.string.not_finished);
+            complete.setText(R.string.not_finished);
         }
 
-        what.setText(task.getWhat());
-        where.setText(task.getWhere());
+        title.setText(task.getTask());
+        priority.setText(task.getLocation());
         date.setText(task.getDateString());
     }
 
     public Task getTask() {
         return task;
     }
+
 }

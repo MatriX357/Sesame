@@ -1,7 +1,6 @@
 package com.mxmbro.sesame.tasks;
 
 import java.io.Serializable;
-
 import java.util.Calendar;
 import java.util.Date;
 
@@ -10,69 +9,100 @@ public class Task implements Serializable{
      *
      */
     private static final long serialVersionUID = 1L;
-
-    private String What;
-    private String Where;
+    private String Name;
+    private String Task;
+    private String Location;
     private Date Date;
-    private boolean complete;
+    private boolean Complete;
+    private String Priority;
+    private String Extra_info;
 
-    private long id;
+    private String id;
 
-    public Task(String taskWhat, String taskWhere, Date taskDate) {
-        What = taskWhat;
-        Where = taskWhere;
+    public Task(String taskName, String task, String taskWhere, Date taskDate) {
+        Name = taskName;
+        Task = task;
+        Location = taskWhere;
         Date = taskDate;
+        Complete = false;
+        Priority = "normal";
+        Extra_info = "";
 
     }
 
-    public String getWhat() {
-        return What;
+    public String getName() {
+        return Name;
     }
 
-    public String getWhere() {
-        return Where;
+    public String getTask() {
+        return Task;
+    }
+
+    public String getLocation() {
+        return Location;
     }
 
     public Date getDate() {
         return Date;
     }
 
-    public void setWhat(String What) {
-        this.What = What;
+    public String getPriority() {
+        return Priority;
     }
 
-    public void setWhere(String Where) {
-        this.Where = Where;
+    public String getExtraInfo() {
+        return Extra_info;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setTask(String Task) {
+        this.Task = Task;
+    }
+
+    public void setLocation(String Location) {
+        this.Location = Location;
     }
 
     public void setDate(Date Date) {
         this.Date = Date;
     }
 
+    public void setPriority(String Priority){
+        this.Priority = Priority;
+    }
+
+    public void setExtraInfo(String extra_info) {
+        Extra_info = extra_info;
+    }
+
+    @Override
     public String toString() {
         Calendar c = Calendar.getInstance();
         c.setTime(Date);
         System.out.println(c.getTimeInMillis());
-        return c.get(Calendar.DAY_OF_MONTH) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR) + " " + Where + " " + What;
+        return c.get(Calendar.DAY_OF_MONTH) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR) + " " + Location + " " + Task;
     }
 
     public boolean isComplete() {
-        return complete;
+        return Complete;
     }
 
     public void setComplete(boolean complete) {
-        this.complete = complete;
+        this.Complete = complete;
     }
 
     public void toggleComplete() {
-        complete = !complete;
+        Complete = !Complete;
     }
 
-    public void setId(long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public long getId() {
+    public String getId() {
         return id;
     }
 
@@ -81,4 +111,5 @@ public class Task implements Serializable{
         c.setTime(Date);
         return c.get(Calendar.DAY_OF_MONTH) + "-" + (c.get(Calendar.MONTH) + 1) + "-" + c.get(Calendar.YEAR);
     }
+
 }

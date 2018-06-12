@@ -27,4 +27,5 @@ public class WelcomeActivity extends AppCompatActivity {
         super.onPause();
         finish();
     }
+
 }

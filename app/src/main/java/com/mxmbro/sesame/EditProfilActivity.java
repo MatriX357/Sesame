@@ -7,24 +7,19 @@ import android.view.View;
 
 public class EditProfilActivity extends AppCompatActivity {
 
-
-    SesameApplication app;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_profil);
-        app = (SesameApplication) getApplication();
     }
 
     public void back(View view) {
-        Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
+        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
         startActivity(intent);
     }
 
     public void cancel(View view){
-        Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
+        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
         startActivity(intent);
     }
 

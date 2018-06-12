@@ -16,19 +16,18 @@ public class ChangePasswordActivity extends AppCompatActivity {
     }
 
     public void changePassword(View view) {
-        Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
+        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
         startActivity(intent);
     }
 
     public void back(View view) {
-        Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
+        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
         startActivity(intent);
     }
 
     public void cancel(View view){
-        Intent intent = new Intent(getApplicationContext(), Settings2Activity.class);
+        Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
         startActivity(intent);
     }
-
 
 }
