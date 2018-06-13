@@ -131,6 +131,15 @@
     <string name="edit">Edytuj</string>
     <string name="delete">Usuń</string>
     <string name="finished_task">Przeszłe wydarzenie/wykonane zadanie</string>
+    <string name="PROFILE">PROFIL</string>
+    <string name="name_user">Nazwa użytkownika:</string>
+    <string name="email_p">Email:</string>
+    <string name="phone_number">Numer telefonu:</string>
+    <string name="phone_p">Telefon</string>
+    <string name="phone_ep">Telefon:</string>
+    <string name="edit_data">Edytuj Dane</string>
+    <string name="user">Użytkownik:</string>
+    <string name="EDIT_DATA">EDYTUJ DANE</string>
 
 
 </resources>

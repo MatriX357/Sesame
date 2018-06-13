@@ -5,8 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ChangePasswordActivity">
+    android:layout_height="match_parent">
 
     <EditText
         android:id="@+id/editText2"
@@ -15,11 +14,9 @@
         android:layout_above="@+id/editText6"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_marginStart="20dp"
-        android:hint="@string/stare_haslo"
-        android:inputType="textPassword"
+        android:hint="@string/user_name"
+        android:inputType="text|textPersonName"
         android:textAlignment="center"
         android:textColor="@color/More_Dark_Red"
         android:textColorHint="@color/More_Dark_Red"
@@ -32,11 +29,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="122dp"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="183dp"
-        android:hint="@string/repeat_password"
-        android:inputType="textPassword"
+        android:hint="@string/numer_telefonu"
+        android:inputType="phone"
         android:textAlignment="center"
         android:textColor="@color/More_Dark_Red"
         android:textColorHint="@color/More_Dark_Red"
@@ -48,11 +45,11 @@
         android:layout_width="328dp"
         android:layout_height="wrap_content"
         android:layout_above="@+id/editText3"
-        android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:hint="@string/new_password"
-        android:inputType="textPassword"
+        android:layout_centerHorizontal="true"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
         android:textAlignment="center"
         android:textColor="@color/More_Dark_Red"
         android:textColorHint="@color/More_Dark_Red"
@@ -67,7 +64,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:background="@color/Black"
-        android:onClick="changePassword"
         android:text="@string/cancel"
         android:textColor="@color/More_Dark_Red"
         android:textSize="20sp" />
@@ -76,10 +72,9 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/imageView4"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp"
-        android:text="@string/change_password"
+        android:text="@string/EDIT_DATA"
         android:textColor="@color/More_Dark_Red"
         android:textSize="30sp" />
 
@@ -89,9 +84,8 @@
         android:layout_height="60dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="73dp"
+        android:layout_marginBottom="52dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
         android:background="@color/Black"
         android:text="@string/confirm"
         android:textColor="@color/More_Dark_Red"
@@ -108,12 +102,21 @@
         android:contentDescription="@string/todo"/>
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="328dp"
-        android:layout_height="121dp"
+        android:id="@+id/imageView6"
+        android:layout_width="246dp"
+        android:layout_height="135dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="110dp"
-        app:srcCompat="@drawable/haslo"
-        android:contentDescription="@string/todo"/>
+        android:layout_marginTop="112dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/editprofil" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/textView5"
+        android:layout_alignParentEnd="true"
+        android:background="@android:color/black"
+        android:text="@string/change_password" />
 </RelativeLayout>

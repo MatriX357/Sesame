@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
     android:background="@color/Maroon"
+    android:orientation="vertical"
     tools:showIn="navigation_view">
 
     <EditText
@@ -33,10 +32,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_title"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_below="@+id/add_title"
         android:ems="10"
         android:hint="@string/task"
         android:inputType="textMultiLine"
@@ -52,11 +51,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_task"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:ems="10"
-        android:layout_below="@+id/add_task"
         android:hint="@string/location"
         android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
@@ -71,10 +70,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_location"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_below="@+id/add_location"
         android:ems="10"
         android:hint="@string/date"
         android:inputType="date"
@@ -90,11 +89,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_date"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:ems="10"
-        android:layout_below="@+id/add_date"
         android:hint="@string/priority"
         android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
@@ -109,10 +108,10 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
+        android:layout_below="@+id/add_priority"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
-        android:layout_below="@+id/add_priority"
         android:ems="10"
         android:hint="@string/notes"
         android:inputType="textMultiLine"
@@ -126,13 +125,11 @@
         android:id="@+id/add_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginEnd="20dp"
+        android:layout_alignEnd="@+id/add_title"
         android:layout_below="@+id/add_notes"
         android:background="#ff0000"
         android:text="@string/confirm"
-        android:textColor="@color/White"/>
+        android:textColor="@color/White" />
 
     <Button
         android:id="@+id/add_cancel"
@@ -144,6 +141,6 @@
         android:layout_marginStart="20dp"
         android:background="#ff0000"
         android:text="@string/cancel"
-        android:textColor="@color/White"/>
+        android:textColor="@color/White" />
 
 </RelativeLayout>
