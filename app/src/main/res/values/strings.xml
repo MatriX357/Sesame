@@ -19,7 +19,7 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="add_task">Dodaj zadanie</string>
     <string name="edit_task">Edytuj Zadanie</string>
-    <string name="delete_finished">Usuń przeszłe wydarzenia i zadania</string>
+    <string name="delete_finished">Usuń przeszłe zdarzenia</string>
     <string name="views">Tryby wyświetlania</string>
     <string name="for_Today">Na Dzisiaj</string>
     <string name="for_Week">Na ten tydzień</string>
