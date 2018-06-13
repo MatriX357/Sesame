@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/profile_arrow"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="20dp"
+        android:contentDescription="@string/todo"
+        android:background="@drawable/ic_arrow_back_red"/>
+
+    <TextView
+        android:id="@+id/profile_text"
+        android:layout_width="72dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:text="@string/profile"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/edit_profile_button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/black"
+        android:text="@string/EDIT_PROFILE" />
+
+    <Button
+        android:id="@+id/change_password_button"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edit_profile_button"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@android:color/black"
+        android:text="@string/change_password" />
+
+    <ImageView
+        android:layout_width="156dp"
+        android:layout_height="162dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/profile_text"
+        android:layout_marginTop="100dp"
+        android:contentDescription="@string/todo"
+        app:srcCompat="@drawable/profile" />
+
+    <TextView
+        android:id="@+id/name_profil"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/email_profil"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/name"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/email_profil"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/phone_profil"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="20dp"
+        android:text="@string/email"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/phone_profil"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="100dp"
+        android:text="@string/phone"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/profil_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/name_profil"
+        android:layout_toEndOf="@id/name_profil"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/profil_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/email_profil"
+        android:layout_toEndOf="@id/email_profil"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/profil_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/phone_profil"
+        android:layout_toEndOf="@id/phone_profil"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:textSize="25sp" />
+
+
+</RelativeLayout>

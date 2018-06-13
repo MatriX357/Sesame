@@ -6,7 +6,9 @@
         <item name="colorPrimaryDark">@color/Maroon</item>
         <item name="colorPrimary">@color/More_Dark_Red</item>
         <item name="colorAccent">@color/Orange</item>
+        <item name="android:textCursorDrawable">@color/More_Dark_Red</item>
         <item name="android:textColorHint">@color/Maroon</item>
+        <item name="android:editTextColor">@color/More_Dark_Red</item>
     </style>
 
     <style name="Theme" />

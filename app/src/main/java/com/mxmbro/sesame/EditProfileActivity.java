@@ -11,16 +11,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mxmbro.sesame.user.User;
-
-import java.util.UUID;
-
-public class RegistrationActivity extends AppCompatActivity{
-    private EditText registerNameEditText;
-    private EditText registerPasswordEditText;
-    private EditText repeatedPasswordEditText;
-    private EditText registerEmailEditText;
-    private EditText registerPhoneEditText;
+public class EditProfileActivity extends AppCompatActivity {
+    private EditText profileName;
+    private EditText profileEmail;
+    private EditText profilePhone;
     private String name;
     private String email;
     private String phone;
@@ -28,49 +22,44 @@ public class RegistrationActivity extends AppCompatActivity{
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_edit_profile);
         setUpViews();
     }
 
-    private void setUpViews(){
-        registerNameEditText = findViewById(R.id.register_name);
-        registerPasswordEditText = findViewById(R.id.register_password);
-        repeatedPasswordEditText = findViewById(R.id.repeated_password);
-        registerEmailEditText = findViewById(R.id.register_email);
-        registerPhoneEditText = findViewById(R.id.register_phone);
-        final Button registerButton = findViewById(R.id.register);
-        Button cancelButton = findViewById(R.id.register_cancel);
+    private void setUpViews() {
+        profileName = findViewById(R.id.edit_profile_name);
+        profileEmail = findViewById(R.id.edit_profile_email);
+        profilePhone = findViewById(R.id.edit_profile_phone);
+        Button editProfileCancel = findViewById(R.id.edit_profile_cancel);
+        Button editProfile = findViewById(R.id.edit_profile);
+        profileName.setText(SesameApplication.user.getName());
+        profileEmail.setText(SesameApplication.user.getEmail());
+        profilePhone.setText(SesameApplication.user.getPhone());
 
-        registerButton.setOnClickListener(new View.OnClickListener(){
-
+        editProfile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                name = registerNameEditText.getText().toString();
-                String password = registerPasswordEditText.getText().toString();
-                String repeat = repeatedPasswordEditText.getText().toString();
-                email = registerEmailEditText.getText().toString();
-                phone = registerPhoneEditText.getText().toString();
-                if(name.equals("")||password.equals("")||repeat.equals("")||email.equals("")||phone.equals("")) {
+                name = profileName.getText().toString();
+                email = profileEmail.getText().toString();
+                phone = profilePhone.getText().toString();
+
+                if(name.equals("")||email.equals("")||phone.equals("")) {
                     showToast("Uzupełnij pola");
-                }else if (password.length()<=8) {
-                    showToast("Hasło za krótkie minimum 9 znaków");
-                }else if (!password.equals(repeat)) {
-                    showToast("Źle powtórzone hasło");
                 }else if (!email.contains("@")) {
                     showToast("Wpisz poprawny email");
                 }else if (phone.length()!=9) {
                     showToast("Wpisz poprawny numer telefonu");
-                }else{
-                    User u = new User(name, password, email, phone);
-                    u.setID(UUID.randomUUID().toString());
-                    SesameApplication.register(u);
+                }else {
+                    SesameApplication.user.setName(name);
+                    SesameApplication.user.setEmail(email);
+                    SesameApplication.user.setPhone(phone);
+                    SesameApplication.saveUser(SesameApplication.user);
                     showMessage();
                 }
             }
         });
 
-        cancelButton.setOnClickListener(new View.OnClickListener(){
-
+        editProfileCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

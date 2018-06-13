@@ -32,20 +32,14 @@ public class SesameSQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHe
         createTable(db);
     }
 
+    @Override
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+
+    }
+
     private void createTable(SQLiteDatabase db) {
         createTableUsers(db);
         createTableTasks(db);
-    }
-
-    private void createTableUsers(SQLiteDatabase db) {
-        db.execSQL("create table " + USERS_TABLE + " ( " +
-                USER_ID + " text primary key not null, " +
-                USER_NAME + " text unique, " +
-                USER_EMAIL + " text unique, " +
-                USER_PASSWORD + " text, " +
-                USER_PHONE + " text unique" +
-                ");"
-        );
     }
 
     private void createTableTasks(SQLiteDatabase db) {
@@ -63,8 +57,14 @@ public class SesameSQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHe
         );
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-
+    private void createTableUsers(SQLiteDatabase db) {
+        db.execSQL("create table " + USERS_TABLE + " ( " +
+                USER_ID + " text primary key not null, " +
+                USER_NAME + " text unique, " +
+                USER_EMAIL + " text unique, " +
+                USER_PASSWORD + " text, " +
+                USER_PHONE + " text unique" +
+                ");"
+        );
     }
 }

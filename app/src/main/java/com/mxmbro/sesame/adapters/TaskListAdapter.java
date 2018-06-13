@@ -23,18 +23,8 @@ public class TaskListAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount() {
-        return tasks.size();
-    }
-
-    @Override
     public Task getItem(int position) {
         return (null == tasks) ? null : tasks.get(position);
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
     }
 
     @Override
@@ -47,6 +37,16 @@ public class TaskListAdapter extends BaseAdapter {
         }
         tli.setTask(tasks.get(position));
         return tli;
+    }
+
+    @Override
+    public int getCount() {
+        return tasks.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     public void forceReload() {
@@ -65,7 +65,7 @@ public class TaskListAdapter extends BaseAdapter {
         for (Task task : tasks) {
             if (task.isComplete()) {
                 completedTasks.add(task);
-                completedIds.add(task.getId());
+                completedIds.add(task.getID());
             }
         }
         tasks.removeAll(completedTasks);

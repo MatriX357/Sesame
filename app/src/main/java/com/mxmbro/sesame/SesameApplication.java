@@ -41,18 +41,17 @@ import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.USER_PHONE;
 
 public class SesameApplication extends Application {
 
+    private ArrayList<Task> viewTasks;
+    private SQLiteDatabase database;
     private static ArrayList<Task> currentTasks;
     private static ArrayList<String> currentTasksId;
-    private ArrayList<Task> viewTasks;
     private static SQLiteDatabase database_static;
-    public static String message = "";
-    private static boolean error = false;
+    private static String URL = "";
     public static boolean connect = false;
     public static boolean downloading = false;
-    private SQLiteDatabase database;
+    public static String message = "";
+    public static String user_name;
     public static User user;
-    private static String URL ="";
-    static String user_name;
 
     public void onCreate() {
         super.onCreate();
@@ -61,6 +60,45 @@ public class SesameApplication extends Application {
         user.setID("00000000-0000-0000-0000-000000000000");
         database = helper.getWritableDatabase();
         database_static = helper.getWritableDatabase();
+    }
+
+    public ArrayList<Task> getCurrentTasks() {
+        return currentTasks;
+    }
+
+    public ArrayList<Task> getViewTasks() {
+        return viewTasks;
+    }
+
+    public void deleteTask(Task t) {
+        String where = String.format("%s = '%s'", TASK_ID, t.getID());
+        database.delete(TASKS_TABLE, where, null);
+        currentTasksId.remove(t.getID());
+        currentTasks.remove(t);
+        URL = "http://155.158.135.197/Sesame/delete.php?Tasks&task_id=" + t.getID();
+        connect = true;
+        new ConnectURL().execute();
+    }
+
+    public void deleteTasks(String[] ids) {
+        StringBuffer idList = new StringBuffer();
+        for (int i = 0; i < ids.length; i++) {
+            URL = "http://155.158.135.197/Sesame/delete.php?Tasks&task_id=" + ids[i];
+            connect = true;
+            new ConnectURL().execute();
+            idList.append(ids[i]);
+            if (i < ids.length -1 ) {
+                idList.append(",");
+            }
+        }
+
+        String where = String.format("%s in ('%s')", TASK_ID, idList);
+        database.delete(TASKS_TABLE, where, null);
+    }
+
+    public void downloadData(){
+        downloading = true;
+        new DownloadUser().execute();
     }
 
     public void loadTasks() {
@@ -82,7 +120,7 @@ public class SesameApplication extends Application {
                 String extra_info = tasksCursor.getString(7);
                 boolean complete = Boolean.parseBoolean(boolValue);
                 t = new Task(name, task, location, new Date(time));
-                t.setId(task_id);
+                t.setID(task_id);
                 t.setPriority(priority);
                 t.setExtraInfo(extra_info);
                 t.setComplete(complete);
@@ -112,6 +150,14 @@ public class SesameApplication extends Application {
         }
         user = u;
         userCursor.close();
+    }
+
+    public void setCurrentTasks(ArrayList<Task> currentTasks) {
+        SesameApplication.currentTasks = currentTasks;
+        currentTasksId = new ArrayList<>();
+        for (Task task:currentTasks){
+            currentTasksId.add(task.getID());
+        }
     }
 
     public void viewTasks(String mode){
@@ -162,7 +208,7 @@ public class SesameApplication extends Application {
                 String extra_info = tasksCursor.getString(7);
                 boolean complete = Boolean.parseBoolean(boolValue);
                 t = new Task(name, task, location, new Date(time));
-                t.setId(task_id);
+                t.setID(task_id);
                 t.setPriority(priority);
                 t.setExtraInfo(extra_info);
                 t.setComplete(complete);
@@ -172,27 +218,11 @@ public class SesameApplication extends Application {
         tasksCursor.close();
     }
 
-    public void setCurrentTasks(ArrayList<Task> currentTasks) {
-        SesameApplication.currentTasks = currentTasks;
-        currentTasksId = new ArrayList<>();
-        for (Task task:currentTasks){
-            currentTasksId.add(task.getId());
-        }
-    }
-
-    public ArrayList<Task> getCurrentTasks() {
-        return currentTasks;
-    }
-
-    public ArrayList<Task> getViewTasks() {
-        return viewTasks;
-    }
-
     public static void addTask(Task t) {
         assert(null != t);
 
         ContentValues values = new ContentValues();
-        values.put(TASK_ID, t.getId());
+        values.put(TASK_ID, t.getID());
         values.put(TASK_NAME, t.getName());
         values.put(TASK, t.getTask());
         values.put(TASK_LOCATION, t.getLocation());
@@ -204,23 +234,14 @@ public class SesameApplication extends Application {
 
         database_static.insert(TASKS_TABLE, null, values);
         currentTasks.add(t);
-        URL = "http://155.158.135.197/Sesame/insert.php?Tasks&task_id=" + t.getId() + "&name=" + t.getName()
-                + "&task=" + t.getTask() + "&location=" + t.getLocation() + "&time=" + t.getDate().getTime() + "&complete=" + Boolean.toString(t.isComplete())
-                + "&priority=" + t.getPriority() + "&extra_info=" + t.getExtraInfo() + "&user_id=" + user.getID();
-        System.out.println(user.getID());
-        connect = true;
-        new ConnectURL().execute();
+        sendTask(t);
     }
 
-    private static void addUser(User u) {
-        ContentValues values = new ContentValues();
-        values.put(USER_ID, u.getID());
-        values.put(USER_NAME, u.getName());
-        values.put(USER_EMAIL, u.getEmail());
-        values.put(USER_PASSWORD, u.getPassword());
-        values.put(USER_PHONE, u.getPhone());
-
-        database_static.insert(USERS_TABLE, null, values);
+    public static void register(User u){
+        URL ="http://155.158.135.197/Sesame/insert.php?Users&user_id=" + u.getID() + "&name=" + u.getName()
+                + "&email=" + u.getEmail() + "&password=" + u.getPassword() + "&phone=" + u.getPhone();
+        connect = true;
+        new ConnectURL().execute();
     }
 
     public static void saveTask(Task t) {
@@ -236,35 +257,37 @@ public class SesameApplication extends Application {
         values.put(EXTRA_INFO, t.getExtraInfo());
         values.put(USER_ID, user.getID());
 
-        String id = t.getId();
+        String id = t.getID();
         String where = String.format("%s = '%s'", TASK_ID, id);
         database_static.update(TASKS_TABLE, values, where, null);
-        URL = "http://155.158.135.197/Sesame/update.php?Tasks&task_id=" + t.getId() + "&name=" + t.getName()
-                + "&task=" + t.getTask() + "&location=" + t.getLocation() + "&time=" + t.getDate().getTime() + "&complete=" + Boolean.toString(t.isComplete())
-                + "&priority=" + t.getPriority() + "&extra_info=" + t.getExtraInfo() + "&user_id=" + user.getID();
-        connect = true;
-        new ConnectURL().execute();
+        sendTaskChange(t);
     }
 
-    public void deleteTasks(String[] ids) {
-        StringBuffer idList = new StringBuffer();
-        for (int i = 0; i < ids.length; i++) {
-            URL = "http://155.158.135.197/Sesame/delete.php?Tasks&task_id=" + ids[i];
-            connect = true;
-            new ConnectURL().execute();
-            idList.append(ids[i]);
-            if (i < ids.length -1 ) {
-                idList.append(",");
-            }
+    public static void saveUser(User u){
+        ContentValues values = new ContentValues();
+        values.put(USER_ID, u.getID());
+        values.put(USER_NAME, u.getName());
+        values.put(USER_EMAIL, u.getEmail());
+        values.put(USER_PASSWORD, u.getPassword());
+        values.put(USER_PHONE, u.getPhone());
+
+        String id = u.getID();
+        String where = String.format("%s = '%s'", USER_ID, id);
+        database_static.update(USERS_TABLE, values, where, null);
+        sendUserChange(u);
+
+    }
+
+    private static JSONArray generateJSONArray(String url) throws IOException, JSONException {
+        JSONArray JAr;
+        String data = connectURL(url);
+        if (data.equals("nullnull")) {
+            JAr = new JSONArray("[]");
         }
-
-        String where = String.format("%s in ('%s')", TASK_ID, idList);
-        database.delete(TASKS_TABLE, where, null);
-    }
-
-    public void downloadData(){
-        downloading = true;
-        new DownloadUser().execute();
+        else {
+            JAr = new JSONArray(data);
+        }
+        return JAr;
     }
 
     private static String connectURL(String url) throws IOException {
@@ -282,23 +305,38 @@ public class SesameApplication extends Application {
         return data;
     }
 
-    private static JSONArray generateJSONArray(String url) throws IOException, JSONException {
-        JSONArray JAr;
-        String data = connectURL(url);
-        if (data.equals("nullnull")) {
-            JAr = new JSONArray("[]");
-        }
-        else {
-            JAr = new JSONArray(data);
-        }
-        return JAr;
+    private static void addUser(User u) {
+        ContentValues values = new ContentValues();
+        values.put(USER_ID, u.getID());
+        values.put(USER_NAME, u.getName());
+        values.put(USER_EMAIL, u.getEmail());
+        values.put(USER_PASSWORD, u.getPassword());
+        values.put(USER_PHONE, u.getPhone());
+
+        database_static.insert(USERS_TABLE, null, values);
     }
 
-    public static void register(User u){
-        URL ="http://155.158.135.197/Sesame/insert.php?Users&user_id=" + u.getID() + "&name=" + u.getName()
-                + "&email=" + u.getEmail() + "&password=" + u.getPassword() + "&phone=" + u.getPhone();
+    private static void sendTaskChange(Task t){
+        URL = "http://155.158.135.197/Sesame/update.php?Tasks&task_id=" + t.getID() + "&name=" + t.getName()
+                + "&task=" + t.getTask() + "&location=" + t.getLocation() + "&time=" + t.getDate().getTime() + "&complete=" + Boolean.toString(t.isComplete())
+                + "&priority=" + t.getPriority() + "&extra_info=" + t.getExtraInfo() + "&user_id=" + user.getID();
         connect = true;
         new ConnectURL().execute();
+    }
+
+    private static void sendTask(Task t){
+        URL = "http://155.158.135.197/Sesame/insert.php?Tasks&task_id=" + t.getID() + "&name=" + t.getName()
+                + "&task=" + t.getTask() + "&location=" + t.getLocation() + "&time=" + t.getDate().getTime() + "&complete=" + Boolean.toString(t.isComplete())
+                + "&priority=" + t.getPriority() + "&extra_info=" + t.getExtraInfo() + "&user_id=" + user.getID();
+        System.out.println(user.getID());
+        connect = true;
+        new ConnectURL().execute();
+    }
+
+    private static void sendTasks(){
+        for (Task t:currentTasks) {
+            sendTask(t);
+        }
     }
 
     private static void sendUserChange(User u){
@@ -306,7 +344,6 @@ public class SesameApplication extends Application {
                 + "&email=" + u.getEmail() + "&password=" + u.getPassword() + "&phone=" + u.getPhone();
         connect = true;
         new ConnectURL().execute();
-
     }
 
     static class ConnectURL extends AsyncTask<Void, Void, Void> {
@@ -320,7 +357,6 @@ public class SesameApplication extends Application {
                 connect = false;
             } catch (IOException e) {
                 connect = false;
-                error = true;
             }
             return null;
         }
@@ -336,7 +372,6 @@ public class SesameApplication extends Application {
                 new TasksDownload().execute();
             } catch (IOException | JSONException ignore) {
                 downloading = false;
-                error = true;
             }
             return null;
         }
@@ -370,9 +405,9 @@ public class SesameApplication extends Application {
                     tasksJAR(i, JAr);
                 }
                 downloading = false;
+                sendTasks();
             } catch (IOException | JSONException ignore) {
                 downloading = false;
-                error = true;
             }
             return null;
         }
@@ -387,23 +422,15 @@ public class SesameApplication extends Application {
             String complete = JOb.getString("complete");
             String priority = JOb.getString("priority");
             String extraInfo = JOb.getString("extra_info");
-            if (!currentTasksId.contains(task_id)) {
-                Task t = new Task(name, task, location, new Date(time));
-                t.setId(task_id);
+            if (currentTasksId.contains(task_id)) {
+                Task t = currentTasks.get(currentTasksId.indexOf(task_id));
+                sendTaskChange(t);
+            } else {
+                Task t = new Task(name,task,location,new Date(time));
                 t.setComplete(Boolean.parseBoolean(complete));
                 t.setPriority(priority);
                 t.setExtraInfo(extraInfo);
                 addTask(t);
-            } else {
-                Task t = currentTasks.get(currentTasksId.indexOf(task_id));
-                t.setName(name);
-                t.setTask(task);
-                t.setLocation(location);
-                t.setDate(new Date(time));
-                t.setComplete(Boolean.parseBoolean(complete));
-                t.setPriority(priority);
-                t.setExtraInfo(extraInfo);
-                saveTask(t);
             }
         }
     }

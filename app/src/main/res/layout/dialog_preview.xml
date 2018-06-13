@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -7,8 +8,8 @@
     android:orientation="vertical"
     tools:showIn="navigation_view">
 
-    <EditText
-        android:id="@+id/add_title"
+    <TextView
+        android:id="@+id/preview_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -17,147 +18,156 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/title"
-        android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
         android:textAlignment="center"
         android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
-        android:textColorHint="#ff8000" />
+        android:textColorHint="#ff8000"
+        android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/add_task"
+    <TextView
+        android:id="@+id/preview_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/add_title"
+        android:layout_below="@+id/preview_title"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/task"
-        android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
         android:textAlignment="center"
         android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
-        android:textColorHint="#ff8000" />
+        android:textColorHint="#ff8000"
+        android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/add_location"
+    <TextView
+        android:id="@+id/preview_location"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/add_task"
+        android:layout_below="@+id/preview_task"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/location"
-        android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
         android:textAlignment="center"
         android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
-        android:textColorHint="#ff8000" />
+        android:textColorHint="#ff8000"
+        android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/add_date"
-        android:layout_width="match_parent"
+    <TextView
+        android:id="@+id/preview_date"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/add_location"
+        android:layout_below="@+id/preview_location"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/date"
-        android:inputType="date"
         android:shadowColor="#ff8000"
         android:textAlignment="center"
         android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
-        android:textColorHint="#ff8000" />
+        android:textColorHint="#ff8000"
+        android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/add_priority"
+    <TextView
+        android:id="@+id/preview_priority"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/add_date"
+        android:layout_below="@+id/preview_date"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/priority"
-        android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
         android:textAlignment="center"
         android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
-        android:textColorHint="#ff8000" />
+        android:textColorHint="#ff8000"
+        android:textSize="18sp" />
 
-    <EditText
-        android:id="@+id/add_notes"
+    <TextView
+        android:id="@+id/preview_notes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/add_priority"
+        android:layout_below="@+id/preview_priority"
         android:layout_centerHorizontal="true"
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:background="@android:color/transparent"
         android:ems="10"
         android:hint="@string/notes"
-        android:inputType="textMultiLine"
         android:shadowColor="#ff8000"
         android:textAlignment="center"
         android:textColor="#ff8000"
         android:textColorHighlight="#ff8000"
-        android:textColorHint="#ff8000" />
+        android:textColorHint="#ff8000"
+        android:textSize="18sp" />
 
-    <RadioButton
-        android:id="@+id/radioButton4"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_delete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/add_title"
-        android:layout_below="@+id/checkBox2"
-        android:layout_marginEnd="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginStart="20dp"
-        android:text="@string/edit"
-        android:textSize="17sp" />
+        android:layout_alignStart="@id/preview_notes"
+        android:layout_below="@+id/preview_notes"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_action_delete" />
 
-    <RadioButton
-        android:id="@+id/radioButton5"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/add_title"
-        android:layout_below="@+id/checkBox2"
-        android:layout_marginEnd="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginStart="20dp"
-        android:text="@string/delete"
-        android:textSize="17sp" />
+        android:layout_below="@+id/preview_notes"
+        android:layout_alignEnd="@id/preview_notes"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@drawable/ic_action_edit" />
 
-    <CheckBox
-        android:id="@+id/checkBox2"
-        android:layout_width="match_parent"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_finished"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/add_notes"
-        android:layout_centerHorizontal="true"
+        android:layout_toStartOf="@id/fab_edit"
+        android:layout_below="@+id/preview_notes"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:text="@string/finished_task"
-        android:textSize="17sp" />
-
+        android:layout_marginBottom="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        app:srcCompat="@android:drawable/checkbox_off_background" />
 
 </RelativeLayout>

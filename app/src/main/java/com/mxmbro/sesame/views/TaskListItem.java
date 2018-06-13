@@ -29,6 +29,10 @@ public class TaskListItem extends LinearLayout {
         date = findViewById(R.id.tli_date);
     }
 
+    public Task getTask() {
+        return task;
+    }
+
     public void setTask(Task task) {
         this.task = task;
         if (task.isComplete()){
@@ -38,12 +42,7 @@ public class TaskListItem extends LinearLayout {
         }
 
         title.setText(task.getTask());
-        priority.setText(task.getLocation());
+        priority.setText(task.getPriority());
         date.setText(task.getDateString());
     }
-
-    public Task getTask() {
-        return task;
-    }
-
 }

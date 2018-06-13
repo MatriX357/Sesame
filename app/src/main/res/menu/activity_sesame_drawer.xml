@@ -4,7 +4,7 @@
     tools:showIn="navigation_view">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/Profil"
+            android:id="@+id/Profile"
             android:icon="@drawable/ic_profil"
             android:title="@string/profile"/>
 
@@ -35,10 +35,7 @@
             android:id="@+id/DeleteFinished"
             android:icon="@drawable/ic_action_delete"
             android:title="@string/delete_finished" />
-        <item
-            android:id="@+id/Settings"
-            android:icon="@drawable/ic_action_settings"
-            android:title="@string/settings" />
+
         <item
             android:id="@+id/Log_Out"
             android:icon="@drawable/ic_action_power_settings_new"

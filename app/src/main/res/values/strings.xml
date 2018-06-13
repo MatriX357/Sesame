@@ -2,79 +2,21 @@
     <string name="app_name">Sesame</string>
 
     <!-- Strings related to login -->
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
-    <string name="title_activity_settings">Settings</string>
 
     <!-- Strings related to Settings -->
 
     <!-- Example General settings -->
 
-    <string name="pref_title_social_recommendations">Enable social recommendations</string>
-    <string name="pref_description_social_recommendations">Recommendations for people to contact
-        based on your message history
-    </string>
-
-    <string name="pref_title_display_name">Display name</string>
-    <string name="pref_default_display_name">John Smith</string>
-
-    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
-    <string-array name="pref_example_list_titles">
-        <item>Always</item>
-        <item>When possible</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_example_list_values">
-        <item>1</item>
-        <item>0</item>
-        <item>-1</item>
-    </string-array>
-
     <!-- Example settings for Data & Sync -->
 
-    <string name="pref_title_sync_frequency">Sync frequency</string>
-    <string-array name="pref_sync_frequency_titles">
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>3 hours</item>
-        <item>6 hours</item>
-        <item>Never</item>
-    </string-array>
-    <string-array name="pref_sync_frequency_values">
-        <item>15</item>
-        <item>30</item>
-        <item>60</item>
-        <item>180</item>
-        <item>360</item>
-        <item>-1</item>
-    </string-array>
-
-    <string name="pref_title_system_sync_settings">System sync settings</string>
-
     <!-- Example settings for Notifications -->
-    <string name="pref_header_notifications">Powiadomienia</string>
 
-    <string name="pref_title_new_message_notifications">Powiadomienia</string>
-
-    <string name="pref_title_ringtone">Dzwonek</string>
-    <string name="pref_ringtone_silent">Cisza</string>
-
-    <string name="pref_title_vibrate">Wibracja</string>
     <string name="new_password">Nowe hasło</string>
-    <string name="change">Zmień</string>
     <string name="stare_haslo">Stare hasło</string>
     <string name="title_activity_main2">Sesame</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="task_manager">Organizer Zadan</string>
-    <string name="sesame">Sesame</string>
     <string name="add_task">Dodaj zadanie</string>
     <string name="edit_task">Edytuj Zadanie</string>
     <string name="delete_finished">Usuń przeszłe wydarzenia i zadania</string>
@@ -82,25 +24,16 @@
     <string name="for_Today">Na Dzisiaj</string>
     <string name="for_Week">Na ten tydzień</string>
     <string name="for_Month">Na ten miesiąc</string>
-    <string name="settings">Ustawienia</string>
     <string name="logout">Wyloguj</string>
     <string name="All">Wszystkie</string>
-    <string name="pref_header_change_password">Zmień hasło</string>
-    <string name="pref_header_set_password">Ustawienia hasła</string>
-    <string name="others">inne</string>
     <string name="date">Data</string>
-    <string name="where">Gdzie?</string>
-    <string name="what">Co?</string>
     <string name="confirm">Zatwierdź</string>
-    <string name="set_date">Ustaw Date</string>
     <string name="sesame_logo">TODO</string>
     <string name="password">Hasło</string>
     <string name="unsaved_changes_title">Niezapisane zmiany</string>
     <string name="unsaved_changes_message">Chciałbyś dodać te zadanie?</string>
     <string name="discard">Odrzuć zmiany</string>
     <string name="no_tasks">Brak wydarzeń i zadań</string>
-    <string name="set_password">Ustaw hasło</string>
-    <string name="SelectFrom">select * from </string>
     <string name="finished">Zrobione</string>
     <string name="not_finished">Nie zrobione</string>
     <string name="cancel">Anuluj</string>
@@ -120,26 +53,16 @@
     <string name="title">Tytuł</string>
     <string name="change_password">Zmień hasło</string>
     <string name="name">Nazwa</string>
-    <string name="phone">Numer telefonu</string>
+    <string name="phone">Nr telefonu</string>
     <string name="task">Zadanie</string>
     <string name="priority">Priorytet</string>
-    <string name="user_exists">uzytkownik o danej nazwie istnieje</string>
-    <string name="SETTINGS">USTAWIENIA</string>
-    <string name="EDIT_PROFIL">EDYTUJ PROFIL</string>
-    <string name="CHANGE_PASSWORD">ZMIEŃ HASŁO</string>
     <string name="EDIT_PROFILE">EDYCJA PROFILU</string>
-    <string name="edit">Edytuj</string>
-    <string name="delete">Usuń</string>
-    <string name="finished_task">Przeszłe wydarzenie/wykonane zadanie</string>
-    <string name="PROFILE">PROFIL</string>
-    <string name="name_user">Nazwa użytkownika:</string>
-    <string name="email_p">Email:</string>
-    <string name="phone_number">Numer telefonu:</string>
-    <string name="phone_p">Telefon</string>
-    <string name="phone_ep">Telefon:</string>
-    <string name="edit_data">Edytuj Dane</string>
-    <string name="user">Użytkownik:</string>
     <string name="EDIT_DATA">EDYTUJ DANE</string>
+    <string name="not_edit_field_title">Brak znaczączych zmian!</string>
+    <string name="not_edit_field_message">no, brak zmian, bez sensu</string>
+    <string name="delete_task_title">Usuwasz zadanie!</string>
+    <string name="delete_task_message">Zadanie zostanie bez powrotnie usunięte!</string>
+    <string name="delete_task">Usuń zadanie!</string>
 
 
 </resources>
