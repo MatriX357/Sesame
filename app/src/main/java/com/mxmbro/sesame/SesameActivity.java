@@ -11,11 +11,9 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MenuItem;
@@ -27,7 +25,6 @@ import android.widget.ListView;
 
 import com.mxmbro.sesame.adapters.TaskListAdapter;
 import com.mxmbro.sesame.tasks.Task;
-import com.mxmbro.sesame.user.User;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -35,21 +32,21 @@ import java.util.Locale;
 import java.util.UUID;
 
 public class SesameActivity extends ListActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private SesameApplication app;
-    private TaskListAdapter adapter;
+    private boolean btnDateChanged;
     private boolean changesPending;
+    private boolean taskChanged;
+    private boolean taskLocationChanged;
+    private boolean taskNameChanged;
+    private Date taskDate;
+    private Dialog dialog;
     private EditText btnDatePicker;
     private EditText taskNameEditText;
     private EditText taskEditText;
     private EditText taskLocationEditText;
     private EditText taskPriorityEditText;
     private EditText taskNotesEditText;
-    private Date taskDate;
-    private Dialog dialog;
-    private boolean btnDateChanged;
-    private boolean taskChanged;
-    private boolean taskLocationChanged;
-    private boolean taskNameChanged;
+    private SesameApplication app;
+    private TaskListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +78,6 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
             }
             case R.id.Profil: {
                 Intent intent = new Intent(getApplicationContext(), ProfilActivity.class);
-                finish();
                 startActivity(intent);
                 break;
             }
@@ -112,7 +108,6 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
             }
             case R.id.Log_Out: {
                 Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                finish();
                 startActivity(intent);
                 break;
             }

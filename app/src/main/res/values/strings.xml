@@ -77,7 +77,7 @@
     <string name="sesame">Sesame</string>
     <string name="add_task">Dodaj zadanie</string>
     <string name="edit_task">Edytuj Zadanie</string>
-    <string name="delete_finished">Usuń przeszłe zdarzenia</string>
+    <string name="delete_finished">Usuń przeszłe wydarzenia i zadania</string>
     <string name="views">Tryby wyświetlania</string>
     <string name="for_Today">Na Dzisiaj</string>
     <string name="for_Week">Na ten tydzień</string>
@@ -123,9 +123,14 @@
     <string name="phone">Numer telefonu</string>
     <string name="task">Zadanie</string>
     <string name="priority">Priorytet</string>
+    <string name="user_exists">uzytkownik o danej nazwie istnieje</string>
     <string name="SETTINGS">USTAWIENIA</string>
     <string name="EDIT_PROFIL">EDYTUJ PROFIL</string>
     <string name="CHANGE_PASSWORD">ZMIEŃ HASŁO</string>
+    <string name="EDIT_PROFILE">EDYCJA PROFILU</string>
+    <string name="edit">Edytuj</string>
+    <string name="delete">Usuń</string>
+    <string name="finished_task">Przeszłe wydarzenie/wykonane zadanie</string>
 
 
 </resources>

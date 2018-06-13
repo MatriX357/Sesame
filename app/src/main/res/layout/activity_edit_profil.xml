@@ -17,7 +17,6 @@
         android:layout_marginStart="20dp"
         android:hint="@string/user_name"
         android:inputType="text|textPersonName"
-        android:password="true"
         android:textAlignment="center"
         android:textColor="@color/More_Dark_Red"
         android:textColorHint="@color/More_Dark_Red"
@@ -35,7 +34,6 @@
         android:layout_marginBottom="143dp"
         android:hint="@string/numer_telefonu"
         android:inputType="phone"
-        android:password="true"
         android:textAlignment="center"
         android:textColor="@color/More_Dark_Red"
         android:textColorHint="@color/More_Dark_Red"
@@ -52,7 +50,6 @@
         android:layout_centerHorizontal="true"
         android:hint="@string/email"
         android:inputType="textEmailAddress"
-        android:password="true"
         android:textAlignment="center"
         android:textColor="@color/More_Dark_Red"
         android:textColorHint="@color/More_Dark_Red"
@@ -67,7 +64,6 @@
         android:layout_marginEnd="20dp"
         android:layout_marginStart="20dp"
         android:background="@color/Black"
-        android:onClick="changePassword"
         android:text="@string/cancel"
         android:textColor="@color/More_Dark_Red"
         android:textSize="20sp" />
@@ -79,7 +75,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
-        android:text="EDYCJA PROFILU"
+        android:text="@string/EDIT_PROFILE"
         android:textColor="@color/More_Dark_Red"
         android:textSize="30sp" />
 
@@ -104,7 +100,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/ic_arrow_back_red"
-        android:onClick="back"/>
+        android:onClick="back"
+        android:contentDescription="@string/todo"/>
 
     <ImageView
         android:id="@+id/imageView6"
@@ -113,5 +110,6 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="114dp"
-        app:srcCompat="@drawable/editprofil" />
+        app:srcCompat="@drawable/editprofil"
+        android:contentDescription="@string/todo"/>
 </RelativeLayout>

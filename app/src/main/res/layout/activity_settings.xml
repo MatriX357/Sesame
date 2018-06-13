@@ -47,7 +47,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="159dp"
-        app:srcCompat="@drawable/ustawienia" />
+        app:srcCompat="@drawable/ustawienia"
+        android:contentDescription="@string/todo"/>
 
     <ImageView
         android:id="@+id/imageView4"
@@ -56,5 +57,6 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         app:srcCompat="@drawable/ic_arrow_back"
-        android:onClick="back"/>
+        android:onClick="back"
+        android:contentDescription="@string/todo"/>
 </RelativeLayout>

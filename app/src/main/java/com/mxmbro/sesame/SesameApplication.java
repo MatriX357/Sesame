@@ -16,7 +16,6 @@ import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
@@ -42,15 +41,16 @@ import static com.mxmbro.sesame.helper.SesameSQLiteOpenHelper.USER_PHONE;
 
 public class SesameApplication extends Application {
 
-    private static String data_S;
-    private static JSONArray JAr;
-    private static boolean ES = true;
     private static ArrayList<Task> currentTasks;
     private static ArrayList<String> currentTasksId;
     private ArrayList<Task> viewTasks;
     private static SQLiteDatabase database_static;
+    public static String message = "";
+    private static boolean error = false;
+    public static boolean connect = false;
+    public static boolean downloading = false;
     private SQLiteDatabase database;
-    private static User user;
+    public static User user;
     private static String URL ="";
     static String user_name;
 
@@ -63,7 +63,7 @@ public class SesameApplication extends Application {
         database_static = helper.getWritableDatabase();
     }
 
-    void loadTasks() {
+    public void loadTasks() {
         currentTasks = new ArrayList<>();
         currentTasksId = new ArrayList<>();
         Cursor tasksCursor;
@@ -94,7 +94,6 @@ public class SesameApplication extends Application {
     }
 
     public void loadUser() {
-        currentTasks = new ArrayList<>();
         Cursor userCursor;
         User u = new User("", "", "", "");
         u.setID("00000000-0000-0000-0000-000000000000");
@@ -115,7 +114,7 @@ public class SesameApplication extends Application {
         userCursor.close();
     }
 
-    void viewTasks(String mode){
+    public void viewTasks(String mode){
         viewTasks = new ArrayList<>();
         Cursor tasksCursor;
         Calendar c = Calendar.getInstance();
@@ -205,6 +204,23 @@ public class SesameApplication extends Application {
 
         database_static.insert(TASKS_TABLE, null, values);
         currentTasks.add(t);
+        URL = "http://155.158.135.197/Sesame/insert.php?Tasks&task_id=" + t.getId() + "&name=" + t.getName()
+                + "&task=" + t.getTask() + "&location=" + t.getLocation() + "&time=" + t.getDate().getTime() + "&complete=" + Boolean.toString(t.isComplete())
+                + "&priority=" + t.getPriority() + "&extra_info=" + t.getExtraInfo() + "&user_id=" + user.getID();
+        System.out.println(user.getID());
+        connect = true;
+        new ConnectURL().execute();
+    }
+
+    private static void addUser(User u) {
+        ContentValues values = new ContentValues();
+        values.put(USER_ID, u.getID());
+        values.put(USER_NAME, u.getName());
+        values.put(USER_EMAIL, u.getEmail());
+        values.put(USER_PASSWORD, u.getPassword());
+        values.put(USER_PHONE, u.getPhone());
+
+        database_static.insert(USERS_TABLE, null, values);
     }
 
     public static void saveTask(Task t) {
@@ -223,66 +239,91 @@ public class SesameApplication extends Application {
         String id = t.getId();
         String where = String.format("%s = '%s'", TASK_ID, id);
         database_static.update(TASKS_TABLE, values, where, null);
+        URL = "http://155.158.135.197/Sesame/update.php?Tasks&task_id=" + t.getId() + "&name=" + t.getName()
+                + "&task=" + t.getTask() + "&location=" + t.getLocation() + "&time=" + t.getDate().getTime() + "&complete=" + Boolean.toString(t.isComplete())
+                + "&priority=" + t.getPriority() + "&extra_info=" + t.getExtraInfo() + "&user_id=" + user.getID();
+        connect = true;
+        new ConnectURL().execute();
     }
 
     public void deleteTasks(String[] ids) {
         StringBuffer idList = new StringBuffer();
         for (int i = 0; i < ids.length; i++) {
+            URL = "http://155.158.135.197/Sesame/delete.php?Tasks&task_id=" + ids[i];
+            connect = true;
+            new ConnectURL().execute();
             idList.append(ids[i]);
             if (i < ids.length -1 ) {
                 idList.append(",");
             }
         }
 
-        String where = String.format("%s in (%s)", TASK_ID, idList);
+        String where = String.format("%s in ('%s')", TASK_ID, idList);
         database.delete(TASKS_TABLE, where, null);
     }
 
     public void downloadData(){
+        downloading = true;
         new DownloadUser().execute();
     }
 
-    private static void connectURL(String url) throws IOException {
-        data_S = "";
-        BufferedReader buffRead = new BufferedReader(new InputStreamReader(new URL(url).openConnection().getInputStream()));
+    private static String connectURL(String url) throws IOException {
+        System.out.println(url);
         String line = "";
+        String data = "";
+        final URLConnection conn = new URL(url).openConnection();
+        conn.setReadTimeout(2000);
+        BufferedReader buffRead = new BufferedReader(new InputStreamReader(conn.getInputStream()));
         while(line != null){
             line = buffRead.readLine();
-            data_S = String.format("%s%s", data_S, line);
+            data = String.format("%s%s", data, line);
         }
+        buffRead.close();
+        return data;
     }
 
-    private static void generateJSONArray(String url) throws IOException, JSONException {
-        data_S = "";
-        BufferedReader buffRead = new BufferedReader(new InputStreamReader(new URL(url).openConnection().getInputStream()));
-        String line = "";
-        while(line != null){
-            line = buffRead.readLine();
-            data_S = String.format("%s%s", data_S, line);
-        }
-        if (data_S.equals("nullnull")) {
+    private static JSONArray generateJSONArray(String url) throws IOException, JSONException {
+        JSONArray JAr;
+        String data = connectURL(url);
+        if (data.equals("nullnull")) {
             JAr = new JSONArray("[]");
         }
         else {
-            JAr = new JSONArray(data_S);
+            JAr = new JSONArray(data);
         }
-        buffRead.close();
+        return JAr;
+    }
+
+    public static void register(User u){
+        URL ="http://155.158.135.197/Sesame/insert.php?Users&user_id=" + u.getID() + "&name=" + u.getName()
+                + "&email=" + u.getEmail() + "&password=" + u.getPassword() + "&phone=" + u.getPhone();
+        connect = true;
+        new ConnectURL().execute();
+    }
+
+    private static void sendUserChange(User u){
+        URL ="http://155.158.135.197/Sesame/update.php?Users&user_id=" + u.getID() + "&name=" + u.getName()
+                + "&email=" + u.getEmail() + "&password=" + u.getPassword() + "&phone=" + u.getPhone();
+        connect = true;
+        new ConnectURL().execute();
 
     }
 
-    public static void addUser(User u) {
-        ContentValues values = new ContentValues();
-        values.put(USER_ID, u.getID());
-        values.put(USER_NAME, u.getName());
-        values.put(USER_EMAIL, u.getEmail());
-        values.put(USER_PASSWORD, u.getPassword());
-        values.put(USER_PHONE, u.getPhone());
+    static class ConnectURL extends AsyncTask<Void, Void, Void> {
 
-        URL ="http://155.158.135.197/Sesame/insert.php?Users&user_id=" + u.getID() + "&name=" + u.getName()
-                + "&email=" + u.getEmail() + "&password=" + u.getPassword() + "&phone=" + u.getPhone();
-        new ConnectURL().execute();
-
-        database_static.insert(USERS_TABLE, null, values);
+        @Override
+        protected Void doInBackground(Void... voids) {
+            try {
+                message = connectURL(URL);
+                System.out.println(message);
+                URL = "";
+                connect = false;
+            } catch (IOException e) {
+                connect = false;
+                error = true;
+            }
+            return null;
+        }
     }
 
     static class DownloadUser extends AsyncTask<Void, Void, Void> {
@@ -290,17 +331,17 @@ public class SesameApplication extends Application {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                generateJSONArray("http://155.158.135.197/Sesame/select.php?Users&name="+user_name);
-                userJAR();
-                ES = true;
+                JSONArray JAr = generateJSONArray("http://155.158.135.197/Sesame/select.php?Users&name="+user_name);
+                userJAR(JAr);
                 new TasksDownload().execute();
-            } catch (IOException | JSONException e) {
-                ES = false;
+            } catch (IOException | JSONException ignore) {
+                downloading = false;
+                error = true;
             }
             return null;
         }
 
-        private static void userJAR() throws JSONException {
+        private static void userJAR(JSONArray JAr) throws JSONException {
             JSONObject JOb = JAr.getJSONObject(0);
             String user_id = JOb.getString("user_id");
             String name = JOb.getString("name");
@@ -309,8 +350,12 @@ public class SesameApplication extends Application {
             String phone = JOb.getString("phone");
             User u = new User(name, password, email, phone);
             u.setID(user_id);
-            if (u.equals(user)){
+            if (u.getID().equals(user.getID())){
+                sendUserChange(u);
+            } else {
+                System.out.println(user.getID());
                 user = u;
+                addUser(u);
             }
         }
     }
@@ -320,17 +365,19 @@ public class SesameApplication extends Application {
         @Override
         protected Void doInBackground(Void... voids) {
             try {
-                generateJSONArray("http://155.158.135.197/Sesame/select.php?Tasks&user_id=" + user.getID());
+                JSONArray JAr = generateJSONArray("http://155.158.135.197/Sesame/select.php?Tasks&user_id=" + user.getID());
                 for (int i = 0; i < JAr.length(); i++) {
-                    tasksJAR(i);
+                    tasksJAR(i, JAr);
                 }
-            } catch (IOException | JSONException e) {
-                e.printStackTrace();
+                downloading = false;
+            } catch (IOException | JSONException ignore) {
+                downloading = false;
+                error = true;
             }
             return null;
         }
 
-        private void tasksJAR(int i) throws JSONException {
+        private void tasksJAR(int i, JSONArray JAr) throws JSONException {
             JSONObject JOb = JAr.getJSONObject(i);
             String task_id = JOb.getString("task_id");
             String name = JOb.getString("name");
@@ -358,20 +405,6 @@ public class SesameApplication extends Application {
                 t.setExtraInfo(extraInfo);
                 saveTask(t);
             }
-        }
-    }
-
-    static class ConnectURL extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            try {
-                connectURL(URL);
-                URL = "";
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            return null;
         }
     }
 }

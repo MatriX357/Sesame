@@ -40,10 +40,10 @@ public class SesameSQLiteOpenHelper extends android.database.sqlite.SQLiteOpenHe
     private void createTableUsers(SQLiteDatabase db) {
         db.execSQL("create table " + USERS_TABLE + " ( " +
                 USER_ID + " text primary key not null, " +
-                USER_NAME + " text, " +
-                USER_EMAIL + " text, " +
+                USER_NAME + " text unique, " +
+                USER_EMAIL + " text unique, " +
                 USER_PASSWORD + " text, " +
-                USER_PHONE + " text " +
+                USER_PHONE + " text unique" +
                 ");"
         );
     }
