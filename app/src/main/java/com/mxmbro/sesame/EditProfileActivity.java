@@ -74,7 +74,7 @@ public class EditProfileActivity extends AppCompatActivity {
             }
             switch (SesameApplication.message) {
                 case "succesfullnull":
-                    showToast("Pomyślna rejestracja");
+                    showToast("Pomyślna edycja użytkownika");
                     finish();
                     break;
                 default:

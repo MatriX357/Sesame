@@ -35,6 +35,7 @@ public class LoginActivity extends AppCompatActivity {
             } else if (!SesameApplication.user.getPassword().equals(password)) {
                 showToast("Niepoprawne hasło");
             } else {
+                showToast("Pomyślna zmiana hasła");
                 finish();
             }
         }catch (Exception ignore){
