@@ -265,8 +265,12 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
                     })
                     .create();
             unsavedChangesDialog.show();
+            dialog = new PreviewDialog(this);
+            dialog.show();
         } else {
             dialog.dismiss();
+            dialog = new PreviewDialog(this);
+            dialog.show();
         }
     }
 
