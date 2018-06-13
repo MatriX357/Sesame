@@ -24,10 +24,6 @@
                 android:id="@+id/Month"
                 android:icon="@drawable/ic_action_chrome_reader_mode"
                 android:title="@string/for_Month" />
-            <item
-                android:id="@+id/All"
-                android:icon="@drawable/ic_action_chrome_reader_mode"
-                android:title="@string/All" />
         </menu>
     </item>
     <group android:checkableBehavior="single">

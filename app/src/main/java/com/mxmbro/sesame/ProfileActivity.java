@@ -117,6 +117,7 @@ public class ProfileActivity extends AppCompatActivity {
                     }else if (!newPassword.equals(repeatedNewPassword)) {
                         showToast("Źle powtórzone hasło");
                     }else {
+                        showToast("Pomyślna zmiana hasła");
                         SesameApplication.user.setPassword(newPassword);
                         SesameApplication.saveUser(SesameApplication.user);
                         dialog.dismiss();

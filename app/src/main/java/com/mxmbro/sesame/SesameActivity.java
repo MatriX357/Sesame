@@ -106,12 +106,6 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
                 setListAdapter(adapter);
                 break;
             }
-            case R.id.All: {
-                app.loadTasks();
-                adapter = new TaskListAdapter(this, app.getCurrentTasks());
-                setListAdapter(adapter);
-                break;
-            }
             case R.id.Log_Out: {
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 SesameApplication.user = new User("","","","");
