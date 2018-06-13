@@ -256,17 +256,21 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
 
                             dialog.cancel();
                             SesameActivity.this.dialog.cancel();
+                            SesameActivity.this.previewDialog();
                         }
                     })
                     .setNegativeButton(R.string.cancel, new AlertDialog.OnClickListener() {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.dismiss();
+                            SesameActivity.this.previewDialog();
                         }
                     })
                     .create();
             unsavedChangesDialog.show();
         } else {
             dialog.dismiss();
+            dialog = new PreviewDialog(this);
+            dialog.show();
         }
     }
 
@@ -292,8 +296,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
             adapter = new TaskListAdapter(this, app.getCurrentTasks());
             setListAdapter(adapter);
             dialog.dismiss();
-            dialog = new PreviewDialog(this);
-            dialog.show();
+            previewDialog();
         } else {
             AlertDialog unsavedChangesDialog = new AlertDialog.Builder(this)
                     .setTitle(R.string.not_edit_field_title)
