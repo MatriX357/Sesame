@@ -50,6 +50,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
     private Task selectedTask;
     private TaskListAdapter adapter;
     private int selectedPosition;
+    private PriorityDialog chooser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -164,7 +165,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
     }
 
     private void addTask() {
-        if (changesPending) {
+        if (taskNameChanged && btnDateChanged && taskChanged && taskLocationChanged) {
             String taskName = taskNameEditText.getText().toString();
             String task = taskEditText.getText().toString();
             String taskLocation = taskLocationEditText.getText().toString();
@@ -280,7 +281,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
     }
 
     private void editTask() {
-        if (taskNameChanged || btnDateChanged || taskChanged || taskLocationChanged) {
+        if (changesPending) {
             String taskName = taskNameEditText.getText().toString();
             String task = taskEditText.getText().toString();
             String taskLocation = taskLocationEditText.getText().toString();
@@ -312,15 +313,20 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
 
     }
 
+    private void loadTasks(){
+        app.loadTasks();
+        adapter = new TaskListAdapter(this, app.getCurrentTasks());
+        setListAdapter(adapter);
+    }
+
     private void previewDialog(){
         dialog = new PreviewDialog(this);
         dialog.show();
     }
 
-    private void loadTasks(){
-        app.loadTasks();
-        adapter = new TaskListAdapter(this, app.getCurrentTasks());
-        setListAdapter(adapter);
+    private void priorityChooser(){
+        chooser = new PriorityDialog(this);
+        chooser.show();
     }
 
     private void removeCompletedTasks() {
@@ -403,6 +409,13 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
 
                 public void onClick(View v) {
                     addCancel();
+                }
+            });
+
+            taskPriorityEditText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    priorityChooser();
                 }
             });
 
@@ -490,6 +503,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
             taskEditText.setText(selectedTask.getTask());
             taskLocationEditText.setText(selectedTask.getLocation());
             btnDatePicker.setText(selectedTask.getDateString());
+            taskDate = selectedTask.getDate();
             taskNotesEditText.setText(selectedTask.getExtraInfo());
             taskPriorityEditText.setText(selectedTask.getPriority());
             changesPending = false;
@@ -513,6 +527,13 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
 
                 public void onClick(View v) {
                     editCancel();
+                }
+            });
+
+            taskPriorityEditText.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    priorityChooser();
                 }
             });
 
@@ -604,6 +625,63 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
         }
     }
 
+    private class PriorityDialog extends Dialog{
+
+        PriorityDialog(@NonNull Context context) {
+            super(context);
+        }
+
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.dialog_chooser);
+            setUpViews();
+        }
+
+        private void setUpViews(){
+            final TextView low = findViewById(R.id.task_low);
+            final TextView medium = findViewById(R.id.task_medium);
+            final TextView high = findViewById(R.id.task_high);
+            final TextView event = findViewById(R.id.event);
+
+            low.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    taskPriorityEditText.setText(low.getText().toString());
+                    chooser.dismiss();
+                }
+            });
+
+            medium.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    taskPriorityEditText.setText(medium.getText().toString());
+                    chooser.dismiss();
+                }
+            });
+
+            high.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    taskPriorityEditText.setText(high.getText().toString());
+                    chooser.dismiss();
+                }
+            });
+
+            event.setOnClickListener(new View.OnClickListener(){
+
+                @Override
+                public void onClick(View v) {
+                    taskPriorityEditText.setText(event.getText().toString());
+                    chooser.dismiss();
+                }
+            });
+        }
+    }
+
     private class PreviewDialog extends Dialog {
         PreviewDialog(Context context) {
             super(context);
@@ -632,10 +710,14 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
             btnDatePicker.setText(selectedTask.getDateString());
             taskNotesEditText.setText(selectedTask.getExtraInfo());
             taskPriorityEditText.setText(selectedTask.getPriority());
-            if (selectedTask.isComplete()){
-                finishedButton.setImageResource(R.drawable.checkbox_on_background);
+            if (selectedTask.getPriority().equals("Wydarzenie")){
+                finishedButton.setVisibility(View.GONE);
             }else{
-                finishedButton.setImageResource(R.drawable.checkbox_off_background);
+                if (selectedTask.isComplete()){
+                    finishedButton.setImageResource(R.drawable.checkbox_on_background);
+                }else{
+                    finishedButton.setImageResource(R.drawable.checkbox_off_background);
+                }
             }
 
             finishedButton.setOnClickListener(new View.OnClickListener() {
@@ -643,6 +725,7 @@ public class SesameActivity extends ListActivity implements NavigationView.OnNav
                 @Override
                 public void onClick(View v) {
                     adapter.toggleTaskCompleteAtPosition(selectedPosition);
+                    SesameApplication.saveTask(selectedTask);
                     if (selectedTask.isComplete()){
                         finishedButton.setImageResource(R.drawable.checkbox_on_background);
                     }else{

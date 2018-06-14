@@ -35,7 +35,9 @@ public class TaskListItem extends LinearLayout {
 
     public void setTask(Task task) {
         this.task = task;
-        if (task.isComplete()){
+        if (task.getPriority().equals("Wydarzenie")){
+            complete.setText("");
+        }else if (task.isComplete()){
             complete.setText(R.string.finished);
         }else{
             complete.setText(R.string.not_finished);

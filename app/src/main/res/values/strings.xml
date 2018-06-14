@@ -63,6 +63,11 @@
     <string name="delete_task_title">Usuwasz zadanie!</string>
     <string name="delete_task_message">Zadanie zostanie bez powrotnie usunięte!</string>
     <string name="delete_task">Usuń zadanie!</string>
+    <string name="low">Niski</string>
+    <string name="medium">Średni</string>
+    <string name="task_high">Wysoki</string>
+    <string name="event">Wydarzenie</string>
+    <string name="choose_priority">Wybierz priorytet</string>
 
 
 </resources>
